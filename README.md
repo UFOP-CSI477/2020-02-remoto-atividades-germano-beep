@@ -2,11 +2,11 @@
 
 ## Atualize os seus dados:
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome: Arthur Germano Margarida
+- Matrícula:18.1.8030
+- Curso: Sistemas de Informação
+- Semestre/Ano correntes:02/2021
+- Link para o seu GitHub: https://github.com/germano-beep
 
 ## [Projeto final:](./Projeto/README.md) 
 
