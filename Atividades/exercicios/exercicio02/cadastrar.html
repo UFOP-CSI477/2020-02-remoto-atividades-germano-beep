@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+   <title>Cadastro</title>
+</head>
+<body>
+
+    <h1>Cadastro: </h1>
+    <form action="#" method="post">
+            <div name= "cadastrar">
+
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div>
+                <label for="data_nascimento">Data de nascimento: </label>
+                <input type="date" name="data_nascimento" id="data_nascimento" 
+                size=5px>
+            </div>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="endereco">Endereço: </label>
+                <input type="text" name="endereco" id="endereco" size=17px>
+            </div>
+            <div>
+                <label for="cep">CEP: </label>
+                <input type="text" name="cep" id="cep" size=21px>
+            </div>
+            <div>
+                <label for="">Gênero: </label>
+                <div>
+                    <input type="radio" name="genero" id="F">
+                    <label for="F">Feminno</label>
+                </div>
+                <div>
+                    <input type="radio" name="genero" id="M">
+                    <label for="M">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" name="genero" id="naoInformar">
+                    <label for="naoInformar">Prefiro não informar</label>
+                </div>
+            </div>
+            <div>
+                <label for="">Interesses: </label>
+                <div>
+                    <input type="checkbox" name="web" id="sistemasWebI">
+                    <label for="sistemasWebI">Sistemas Web I</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="db" id="database">
+                    <label for="database">Banco de Dados</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="calc" id="calculo">
+                    <label for="calculo">Cálculo I</label>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Cadastrar">
+        <input type="reset" value="Limpar formulário">
+    </form>
+    
+    
+</body>
+</html>
