@@ -8,7 +8,7 @@
 - Semestre/Ano correntes:02/2021
 - Link para o seu GitHub: https://github.com/germano-beep
 
-## [Projeto final:](./Projeto/README.md) 
+## [Projeto final: Aplicação para a prática de exercício físico](./Projeto/README.md) 
 
-Apresente uma breve descrição do seu projeto.
+Aolicação para a prática de exercício físico semanal de acordo com o perfil do usuário.
 

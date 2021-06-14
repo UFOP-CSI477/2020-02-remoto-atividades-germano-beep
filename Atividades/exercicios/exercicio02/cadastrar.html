@@ -3,67 +3,89 @@
 <head>
     <meta charset="UTF-8">
    <title>Cadastro</title>
+   <link rel="stylesheet" href="cadastrar.css">
 </head>
 <body>
 
     <h1>Cadastro: </h1>
     <form action="#" method="post">
-            <div name= "cadastrar">
+        <div name= "cadastrar" id="divPrincipal">
+            <div id="div1">
+                <div id="div_nome">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" >
+                </div>
+                <div id="div_data_nascimento">
+                    <label for="data_nascimento">Data de nascimento: </label>
+                    <input type="date" name="data_nascimento" id="data_nascimento">
+                </div>
+            </div>
+            
 
-            <div>
-                <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome">
-            </div>
-            <div>
-                <label for="data_nascimento">Data de nascimento: </label>
-                <input type="date" name="data_nascimento" id="data_nascimento" 
-                size=5px>
-            </div>
-            <div>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div>
-                <label for="endereco">Endereço: </label>
-                <input type="text" name="endereco" id="endereco" size=17px>
-            </div>
-            <div>
-                <label for="cep">CEP: </label>
-                <input type="text" name="cep" id="cep" size=21px>
-            </div>
-            <div>
-                <label for="">Gênero: </label>
-                <div>
-                    <input type="radio" name="genero" id="F">
-                    <label for="F">Feminno</label>
+            <div id="div2">
+                <div id="div_email">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
                 </div>
-                <div>
-                    <input type="radio" name="genero" id="M">
-                    <label for="M">Masculino</label>
+                <div id="div_endereco">
+                    <label for="endereco">Endereço: </label>
+                    <input type="text" name="endereco" id="endereco" >
                 </div>
-                <div>
-                    <input type="radio" name="genero" id="naoInformar">
-                    <label for="naoInformar">Prefiro não informar</label>
+                
+            </div>
+            
+            <div id="div3">
+                <div id="div_cep">
+                    <label for="cep">CEP: </label>
+                    <input type="text" name="cep" id="cep" >
+                </div>
+                <div id="div_telefone">
+                    <label for="Telefone: ">Telefone: </label>
+                    <input type="tel" name="telefone" id="telefone">
+                </div>
+
+            </div>
+
+            <div id="div4">
+                <div id="div_genero">
+                    <label for="">Gênero: </label>
+                    <div>
+                        <input type="radio" name="genero" id="F">
+                        <label for="F">Feminno</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="genero" id="M">
+                        <label for="M">Masculino</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="genero" id="naoInformar">
+                        <label for="naoInformar">Prefiro não informar</label>
+                    </div>
+                </div>
+                <div id="div_interesses">
+                    <label for="">Interesses: </label>
+                    <div>
+                        <input type="checkbox" name="web" id="sistemasWebI">
+                        <label for="sistemasWebI">Sistemas Web I</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="db" id="database">
+                        <label for="database">Banco de Dados</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="calc" id="calculo">
+                        <label for="calculo">Cálculo I</label>
+                    </div>
                 </div>
             </div>
-            <div>
-                <label for="">Interesses: </label>
-                <div>
-                    <input type="checkbox" name="web" id="sistemasWebI">
-                    <label for="sistemasWebI">Sistemas Web I</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="db" id="database">
-                    <label for="database">Banco de Dados</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="calc" id="calculo">
-                    <label for="calculo">Cálculo I</label>
-                </div>
-            </div>
+
+
         </div>
-        <input type="submit" value="Cadastrar">
-        <input type="reset" value="Limpar formulário">
+        <div id="botoes">
+            <input class="botao" type="submit" value="Cadastrar">
+            <input class="botao" type="reset" value="Limpar formulário">
+        </div>
+        
     </form>
     
     
