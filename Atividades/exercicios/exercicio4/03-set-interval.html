@@ -51,18 +51,18 @@
             segundos=0;
             minutos = 0;
             horas=0;
-            document.getElementById("cronometro").innerHTML="";
+            document.getElementById("cronometro").innerHTML=`${horas}:${minutos}:${segundos}`;
 
         }
     </script>
 </head>
 <body>
 
-    <h3>Cronômetro simples. Horas:Segundos:Minutos</h3>
-    <div id="cronometro"></div>
-    <input type="button" value="Iniciar" onclick="iniciar()">
-    <input type="button" value="Parar" onclick="parar()">
-    <input type="button" value="Reiniciar" onclick="reiniciar()">
+    <h3>CRONÔMETRO SIMPLES<br>( h:m:s )</h3>
+    <div id="cronometro" class="fs-1"></div>
+    <input class="btn btn-success" type="button" value="Iniciar" onclick="iniciar()">
+    <input class="btn btn-danger" type="button" value="Parar" onclick="parar()">
+    <input class="btn btn-primary"type="button" value="Reiniciar" onclick="reiniciar()">
 
     
 </body>
