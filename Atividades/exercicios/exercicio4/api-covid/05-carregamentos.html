@@ -15,11 +15,18 @@
     <h3>COVID deaths</h3>
     <form>
 
-        <select class="bg-primary text-white"name="paises" id="paises">
+        <select class="bg-primary text-white" name="paises" id="paises" onchange="carregarDados()">
 
             <option value="">Selecione um país</option>
 
         </select>
+
+        <div name="dados" id="dados">
+
+
+        </div>
+
+
 
     </form>
     <script src="api.js"></script>
