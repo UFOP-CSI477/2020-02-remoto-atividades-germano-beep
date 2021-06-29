@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Calculadora</title>
+</head>
+
+<body class="text-light">
+
+    <div class="container bg-light" name="calculadora" id="calculadora">
+        <form class="text-white">
+
+            <div class="row g-1">
+
+                <input class="col mx-0 my-0 px-0 py-0" name="tela" id="tela" disabled type="text">
+            </div>
+
+
+
+
+            <!-- botões de 7 a 9 -->
+
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="sete" id="sete"
+                     type="button" value="7" onclick="seleciona(this)">
+
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="oito" id="oito"
+                     type="button" value="8" onclick="seleciona(this)">
+
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="nove" id="nove"
+                     type="button" value="9" onclick="seleciona(this)">
+
+
+
+            </div>
+
+            <!-- botões de 4 a 6 -->
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="quatro" id="quatro"
+                     type="button" value="4" onclick="seleciona(this)">
+
+
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="cinco" id="cinco"
+                     type="button" value="5" onclick="seleciona(this)">
+
+
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="seis" id="seis"
+                     type="button" value="6" onclick="seleciona(this)">
+
+
+            </div>
+
+            <!-- botões de 1 a 3 -->
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="um" id="um"
+                     type="button" value="1" onclick="seleciona(this)">
+
+
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="dois" id="dois"
+                     type="button" value="2" onclick="seleciona(this)">
+
+
+
+                <input class="col-1  border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-dark" name="tres" id="tres"
+                     type="button" value="3" onclick="seleciona(this)">
+
+            </div>
+
+
+
+            <!-- botões de 0, + e - -->
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+
+                <input class="col-1 border border-dark btn btn-outline-dark mx-0 my-0 px-0 py-0" id="zero" 
+                    type="button" value="0" onclick="seleciona(this)">
+
+
+
+                <input class="col-1  border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-primary" id="mais"
+                     type="button" value="+" onclick="seleciona(this)">
+
+
+                <input class="col-1  border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-primary" id="menos"
+                     type="button" value="-" onclick="seleciona(this)">
+
+
+            </div>
+
+            <!-- botões de *, / e = -->
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+                <input class="col-1  border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-primary" id="mult"
+                     type="button" value="*" onclick="seleciona(this)">
+
+                <input class="col-1  border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-primary" id="divisao"
+                     type="button" value="/" onclick="seleciona(this)">
+
+                <input class="col-1 border border-dark mx-0 my-0 px-0 py-0 btn btn-outline-success"
+                    type="button" value="=" onclick="calcular()">
+
+            </div>
+            <!-- botões de C  -->
+            <div class="row row-cols-3 mx-0 my-0 px-0 py-0">
+
+                <input class="col-1  border border-dark  btn btn-outline-danger"
+                    type="reset" value="C">
+
+
+
+            </div>
+        </form>
+    </div>
+    <script src="02-calculadora.js"></script>
+</body>
+
+</html>

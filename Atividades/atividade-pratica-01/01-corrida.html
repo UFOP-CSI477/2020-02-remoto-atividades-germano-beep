@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Corrida</title>
+</head>
+
+<body>
+
+    <h1>Corrida de rolimã</h1>
+    
+    <form action="">
+    <table name="tabela" id="tabela"
+        class="table  table-striped table-hover table-bordered border-light table caption-top">
+        <thead class="table-light">
+            <tr id="rowHead">
+                <th>Largada</th>
+                <th>Competidor(a)</th>
+                <th>Tempo(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr id="row1">
+                <!-- competidor 1-->
+                <th>
+                    <input name="larg1" id="larg1" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet1" id="compet1" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo1" id="tempo1" type="text" value="">
+                </th>
+            </tr>
+
+            <tr id="row2">
+                <!-- competidor 2-->
+
+                <th>
+                    <input name="larg2" id="larg2" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet2" id="compet2" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo2" id="tempo2" type="text" value="">
+                </th>
+            </tr>
+
+
+            <tr id="row3">
+                <!-- competidor3 -->
+                <th>
+                    <input name="larg3" id="larg3" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet3" id="compet3" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo3" id="tempo3" type="text" value="">
+                </th>
+            </tr>
+
+            <tr id="row4">
+                <!-- competidor 4-->
+                <th>
+                    <input name="larg4" id="larg4" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet4" id="compet4" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo4" id="tempo4" type="text" value="">
+                </th>
+            </tr>
+
+
+            <tr id="row5">
+                <!-- competidor 5-->
+                <th>
+                    <input name="larg5" id="larg5" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet5" id="compet5" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo5" id="tempo5" type="text" value="">
+                </th>
+            </tr>
+
+
+            <tr id="row6">
+                <!-- competidor6 -->
+                <th>
+                    <input name="larg6" id="larg6" type="text" value="" holdplace="">
+                </th>
+                <th>
+                    <input name="compet6" id="compet6" type="text" value="">
+                </th>
+                <th>
+                    <input name="tempo6" id="tempo6" type="text" value="">
+                </th>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+    <input class="btn btn-success" type="button" value="Partida!" onclick="iniciarCorrida()">
+    <input for="tabela" class="btn btn-danger" type="reset" value="Limpar" >
+    </form>
+
+
+    
+    <script src="01-corrida.js"> </script>
+
+
+</body>
+
+</html>
