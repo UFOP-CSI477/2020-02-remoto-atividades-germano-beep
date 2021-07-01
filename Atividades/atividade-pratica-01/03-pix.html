@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body onload="carregar_bancos()">
+<body onload="carregar_bancos1()">
 
     <form class="container">
 
@@ -47,13 +47,13 @@
         </div>
 
         <div class="form-floating">
-            <select class="form-select" name="bancos1" id="bancos1">
+            <select class="form-select" name="bancos1" id="bancos1" onclick="carregar_bancos2()">
                 <option value="">Banco de envio</option>
             </select>
         </div>
 
         <div class="form-floating">
-            <select class="form-select" name="bancos1" id="bancos1">
+            <select class="form-select" name="bancos2" id="bancos2">
                 <option value="">Banco de recebimento</option>
             </select>
         </div>
@@ -62,7 +62,7 @@
 
     </form>
 
-
+    <script src="03-pix.js"></script>
 
 </body>
 
