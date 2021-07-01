@@ -32,17 +32,17 @@
             <select class="form-select" name="tipo_operacao" id="tipo_operacao">
                 <option value="envio">ENVIO</option>
                 <option value="recebimento">RECEBIMENTO</option>
-                
+
             </select>
             <label for="tipo_operacao">Operação</label>
 
         </div>
         <div class="form-floating mb-3">
             <input class="form-control " name="valor" id="valor" type="text" placeholder="1000,00">
-            <label for="valor">Valor ex.: 1000,00</label>
+            <label for="valor">Valor ex.: 1000.00</label>
         </div>
         <div class="form-floating mb-3">
-            <input class="form-control" name="data" id="data" type="date" >
+            <input class="form-control" name="data" id="data" type="date">
             <label for="data">Data</label>
         </div>
 
@@ -57,8 +57,9 @@
                 <option value="">Banco de recebimento</option>
             </select>
         </div>
-        <input class="btn btn-success"type="button" value="Finalizar">
-        <input class="btn btn-danger"type="reset" value="Limpar">
+        <input class="btn btn-primary" type="button" value="Confirmar Transação" onclick="confirmar()">
+        <input class="btn btn-danger" type="reset" value="Limpar">
+        <input class="btn btn-success" type="button" value="Finalizar Transações" onclick="relatorio_transacoes()">
 
     </form>
 
