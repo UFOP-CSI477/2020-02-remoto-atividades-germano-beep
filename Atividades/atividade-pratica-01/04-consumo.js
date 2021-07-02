@@ -26,7 +26,7 @@ function cadastrar() {
         list_carros.push(carro);
         window.alert(`veículo registrado`);
       
-        document.getElementById("mediah5").innerText = `Desempenho: ${parseFloat(quilometros.value / combustivel.value)}km/l`;
+        document.getElementById("mediah5").innerText = `Desempenho: ${parseFloat(quilometros.value / combustivel.value)}km/L`;
 
         total_combustivel += parseFloat(combustivel.value);
         total_quilometros += parseFloat(quilometros.value);
