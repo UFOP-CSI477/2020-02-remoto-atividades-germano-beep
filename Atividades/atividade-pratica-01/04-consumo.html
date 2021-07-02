@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Consumo</title>
+</head>
+
+<body>
+
+    <h3>Registro: </h3>
+    <form  action="">
+        <div class="form-floating">
+            <input class="form-control" name="combustivel" id="combustivel" type="text" placeholder="ex.: 34.5">
+            <label for="combustivel">Quantidade de combustível</label>
+
+        </div>
+        <div class="form-floating">
+            
+            <input class="form-control" type="text"  name="quilometros" id="quilometros" placeholder="ex.: 15.94">
+            <label for="quilometros">Quilômetros rodados</label>
+        </div>
+        <div id="media">
+            <h5 id="mediah5">
+
+            </h5>
+        </div>
+        <input type="button" class="btn btn-primary" value="Registrar veículo" onclick="cadastrar()">
+        <input type="reset" class="btn btn-danger" value="Limpar" onclick="limpar()">
+        <input type="button" class="btn btn-success" value="Finalizar" onclick="finalizar_processo()">
+
+    </form>
+</body>
+
+<script src="04-consumo.js"></script>
+
+</html>
