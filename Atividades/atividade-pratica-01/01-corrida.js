@@ -3,7 +3,7 @@ let flag = true;
 // auxilia para a posicao final dos corredores
 let tempos = [];
 // auxilia na posicao final
-let posicao_aux;
+let posicao_aux = 7;
 
 
 function Competidor(id, tempo, posicao) {
@@ -26,9 +26,12 @@ placing = 0;
 function posicao_final() {
     document.getElementById("posicao").innerText = `Posições`;
     let maior_tempo;
+    posicao_aux = 7;
+    
+
     for (index = 0; index < corredores.length; index++) {
 
-        
+        posicao_aux--;
        
         if(tempos.length!=0){
             
@@ -43,27 +46,29 @@ function posicao_final() {
                 
                 tempos.splice(index_tempos, 1);
             }
+            
+            for (index_aux = 0; index_aux < 6; index_aux++) {
+                corredor = corredores[index_aux];
+                
+                
+                
+                if (maior_tempo == corredor.tempo) {
+                    console.log(corredores.length-index);
+                    document.getElementById(corredor.posicao).innerText = (corredores.length-index);
+                }
+            }       
         }
-
-        for (index_aux = 0; index_aux < 6; index_aux++) {
-             corredor = corredores[index_aux];
-             
-             
-             
-            if (maior_tempo == corredor.tempo) {
-               console.log(posicao_aux);
-                document.getElementById(corredor.posicao).innerText = posicao_aux;
-            }
-        }
-        posicao_aux--;
+       
     }   
+    // necessário zerar a quantidade corredores 
+    // pois se n cada vez que correr  será add mais corredores ao array
+    corredores=[];
     
 }
 
 function iniciarCorrida() {
 
     flag = true;
-    posicao_aux = 6;
     document.getElementById("posicao").innerText = ``;
     document.getElementById("resultado").innerText = ``;
     for (let index = 1; index <= 6; index++) {
