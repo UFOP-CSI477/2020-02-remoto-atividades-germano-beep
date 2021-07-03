@@ -2,6 +2,8 @@ let corredores = [];
 let flag = true;
 // auxilia para a posicao final dos corredores
 let tempos = [];
+// auxilia na posicao final
+let posicao_aux;
 
 
 function Competidor(id, tempo, posicao) {
@@ -22,35 +24,53 @@ function validar_campos(campo) {
 placing = 0;
 
 function posicao_final() {
-    document.getElementById("posicao").innerText=`Posições`
-    for (index = 6; index > 0; index--) {
-        console.log(tempos);
-        var maior_tempo = console.log(Math.max.apply(null, tempos));
-        console.log(`eu estou aparecendo${maior_tempo}`);
-        const index_tempos = tempos.indexOf(maior_tempo);
-        if (index_tempos > -1) {
-        console.log(`eu estou aparecendo`)
+    document.getElementById("posicao").innerText = `Posições`;
+    let maior_tempo;
+    for (index = 0; index < corredores.length; index++) {
 
-            tempos.splice(index_tempos, 1);
-        }
-
-        for (index_aux = 0; index_aux < corredores.length; index_aux++) {
-            let corredor = corredores[index_aux];
-            if(maior_tempo == corredor.tempo){
-                console.log(`posicao${corredor.id}`);
-                document.getElementById(`posicao${corredor.id}`).innerText=index_aux;
+        
+       
+        if(tempos.length!=0){
+            
+            maior_tempo = tempos.reduce(function (a, b) {
+                return Math.max(a, b);
+            });
+            
+            const index_tempos = tempos.indexOf(maior_tempo);
+            
+            if (index_tempos > -1) {
+                
+                
+                tempos.splice(index_tempos, 1);
             }
         }
-    }
+
+        for (index_aux = 0; index_aux < 6; index_aux++) {
+             corredor = corredores[index_aux];
+             
+             
+             
+            if (maior_tempo == corredor.tempo) {
+               console.log(posicao_aux);
+                document.getElementById(corredor.posicao).innerText = posicao_aux;
+            }
+        }
+        posicao_aux--;
+    }   
+    
 }
 
 function iniciarCorrida() {
 
-    document.getElementById("posicao").innerText=``;
+    flag = true;
+    posicao_aux = 6;
+    document.getElementById("posicao").innerText = ``;
     document.getElementById("resultado").innerText = ``;
     for (let index = 1; index <= 6; index++) {
-        const element = "result" + index;
+        const element = `result${index}`;
+        const element_position = `posicao${index}`;
         document.getElementById(element).innerText = ``;
+        document.getElementById(element_position).innerText=``;
 
     }
 
@@ -63,11 +83,11 @@ function iniciarCorrida() {
     ) {
         for (let index = 1; index <= 6; index++) {
             let id = index.toString();
-            let tempo = "tempo" + id;
-            let posicao = "posicao" + id;
-            let competidor = new Competidor(document.getElementById(id).value,
+            let tempo = "tempo" + index;
+            let posicao = "posicao" + index;
+            let competidor = new Competidor(document.getElementById(id).id,
                 parseInt(document.getElementById(tempo).value),
-                document.getElementById(posicao));
+                document.getElementById(posicao).id);
 
             tempos.push(parseInt(document.getElementById(tempo).value));
             corredores.push(competidor);
@@ -162,36 +182,8 @@ function correr() {
     }
 
 
-    if(!flag){
+    if (!flag) {
         clearInterval(id);
         posicao_final();
     }
 }
-    // let competidor1 = new Competidor(document.getElementById("1").value,
-    //     parseInt(document.getElementById("tempo1").value),
-    //     document.getElementById("posicao1"));
-
-
-    // let competidor2 = new Competidor(document.getElementById("2").value,
-    //     parseInt(document.getElementById("tempo2").value),
-    //     document.getElementById("posicao2"));
-
-
-    // let competidor3 = new Competidor(document.getElementById("3").value,
-    //     parseInt(document.getElementById("tempo3").value),
-    //     document.getElementById("posicao3"));
-
-
-    // let competidor4 = new Competidor(document.getElementById("4").value,
-    //     parseInt(document.getElementById("tempo4").value),
-    //     document.getElementById("posicao4"));
-
-
-    // let competidor5 = new Competidor(document.getElementById("5").value,
-    //     parseInt(document.getElementById("tempo5").value),
-    //     document.getElementById("posicao5"));
-
-
-    // let competidor6 = new Competidor(document.getElementById("6").value,
-    //     parseInt(document.getElementById("tempo6").value),
-    //     document.getElementById("posicao6"));
