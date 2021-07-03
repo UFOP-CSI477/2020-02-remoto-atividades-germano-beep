@@ -1,3 +1,11 @@
+function validar_campos(campo) {
+    if (campo.value.length == 0) {
+        window.alert(`Preencha os campos corretamente`);
+        campo.focus();
+        return false;
+    }
+    return true;
+}
 
 // object transacao
 function Transacao(tipo, valor) {
@@ -11,22 +19,32 @@ let lista_transacoes = [];
 
 function confirmar() {
 
-    let transacao;
-    let tipo = document.getElementById("tipo_operacao").value;
-    let valor = document.getElementById("valor").value;
-    if (tipo == "envio") {
-        transacao = new Transacao(tipo, -valor);
-    } else {
-        transacao = new Transacao(tipo, +valor);
+    if (validar_campos(document.getElementById("tipo_chave")) &&
+        validar_campos(document.getElementById("valor_chave")) &&
+        validar_campos(document.getElementById("tipo_operacao")) &&
+        validar_campos(document.getElementById("valor"))&&
+        validar_campos(document.getElementById("data")) &&
+        validar_campos(document.getElementById("bancos1"))&&
+        validar_campos(document.getElementById("bancos2"))
+    ) {
+        
+        let transacao;
+        let tipo = document.getElementById("tipo_operacao").value;
+        let valor = document.getElementById("valor").value;
+        if (tipo == "envio") {
+            transacao = new Transacao(tipo, -valor);
+        } else {
+            transacao = new Transacao(tipo, +valor);
+        }
+        
+        lista_transacoes.push(transacao);
+        window.alert(`Transação concluída com sucesso`)
     }
-
-    lista_transacoes.push(transacao);
-    window.alert(`Transação concluída com sucesso`)
 }
-
-function relatorio_transacoes() {
-    console.log(lista_transacoes);
-
+    
+    function relatorio_transacoes() {
+        console.log(lista_transacoes);
+        
     let envio = 0;
     let recebimento = 0;
     let saldo;

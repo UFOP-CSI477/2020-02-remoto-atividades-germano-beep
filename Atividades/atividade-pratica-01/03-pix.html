@@ -15,6 +15,7 @@
 
         <div class="form-floating">
             <select class="form-select" name="tipo_chave" id="tipo_chave">
+                <option value=""> </option>
                 <option value="cpf">CPF</option>
                 <option value="cnpj">CNPJ</option>
                 <option value="email">EMAIL</option>
@@ -30,6 +31,7 @@
 
         <div class="form-floating">
             <select class="form-select" name="tipo_operacao" id="tipo_operacao">
+                <option value=""></option>
                 <option value="envio">ENVIO</option>
                 <option value="recebimento">RECEBIMENTO</option>
 
@@ -48,14 +50,16 @@
 
         <div class="form-floating">
             <select class="form-select" name="bancos1" id="bancos1" onclick="carregar_bancos2()">
-                <option value="">Banco de envio</option>
+                <option value=""> </option>
             </select>
+            <label for="bancos1">Banco de envio</label>
         </div>
 
         <div class="form-floating">
             <select class="form-select" name="bancos2" id="bancos2">
-                <option value="">Banco de recebimento</option>
+                <option value=""> </option>
             </select>
+            <label for="bancos2">Banco de recebimento</label>
         </div>
         <input class="btn btn-primary" type="button" value="Confirmar Transação" onclick="confirmar()">
         <input class="btn btn-danger" type="reset" value="Limpar">
