@@ -2,8 +2,7 @@ let corredores = [];
 let flag = true;
 // auxilia para a posicao final dos corredores
 let tempos = [];
-// auxilia na posicao final
-let posicao_aux = 7;
+
 
 
 function Competidor(id, tempo, posicao) {
@@ -26,12 +25,12 @@ placing = 0;
 function posicao_final() {
     document.getElementById("posicao").innerText = `Posições`;
     let maior_tempo;
-    posicao_aux = 7;
+    
     
 
     for (index = 0; index < corredores.length; index++) {
 
-        posicao_aux--;
+       
        
         if(tempos.length!=0){
             
