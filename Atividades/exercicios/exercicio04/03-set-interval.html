@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Cronômetro</title>
+
+    <script>
+
+       
+        let segundos = 0;
+        let minutos = 0;
+        let horas = 0;
+        let id;
+        let executando = false;
+
+        function processo(){
+
+            document.getElementById("cronometro").innerHTML = `${horas}:${minutos}:${segundos}`;
+
+           
+                segundos++;
+                if (segundos==60) {
+                    segundos=0;
+                    minutos++
+                    if (minutos==60) {
+                        minutos=0;
+                        horas++;
+                    }
+                }
+            
+        }
+
+        function iniciar(){
+            if (!executando) {
+                id = setInterval(processo, 1000);
+                executando = true;
+            }
+        }
+
+        function parar() {
+            clearInterval(id);
+            executando=false;
+        }
+
+        function reiniciar(){
+            parar();
+            
+            segundos=0;
+            minutos = 0;
+            horas=0;
+            document.getElementById("cronometro").innerHTML=`${horas}:${minutos}:${segundos}`;
+
+        }
+    </script>
+</head>
+<body>
+
+    <h3>CRONÔMETRO SIMPLES<br>( h:m:s )</h3>
+    <div id="cronometro" class="fs-1"></div>
+    <input class="btn btn-success" type="button" value="Iniciar" onclick="iniciar()">
+    <input class="btn btn-danger" type="button" value="Parar" onclick="parar()">
+    <input class="btn btn-primary"type="button" value="Reiniciar" onclick="reiniciar()">
+
+    
+</body>
+</html>
