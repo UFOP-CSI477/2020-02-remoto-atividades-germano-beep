@@ -61,7 +61,7 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        //
+        return view('produtos.edit', ['produto'=>$produto]);
     }
 
     /**
@@ -73,7 +73,14 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        // dd($request->all());
+
+        $produto->fill($request->all());
+        $produto->save();
+
+        session()->flash('mensagem','Produto atualizado com sucesso!');
+
+        return redirect()->route('produtos.index');
     }
 
     /**
@@ -84,6 +91,9 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        // dd($produto);
+        $produto->delete();
+        session()->flash('mensagem','Produto excluído com sucesso');
+        return redirect()->route('produtos.index');
     }
 }
