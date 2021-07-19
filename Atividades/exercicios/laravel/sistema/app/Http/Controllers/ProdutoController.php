@@ -25,7 +25,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('produtos.create');
     }
 
     /**
@@ -36,7 +36,10 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::create($request->all());
+
+        session()->flash('mensagem', 'Produto cadastrado com sucesso');
+        return redirect()->route('produtos.index');
     }
 
     /**

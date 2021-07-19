@@ -23,7 +23,7 @@
 
         <a href="{{route('produtos.index')}}" class="btn btn-outline-dark">Produtos</a>
 
-        <a href="cadastrar.html" class="btn btn-outline-dark">Cadastrar</a>
+        <!-- <a href="cadastrar.html" class="btn btn-outline-dark">Cadastrar</a> -->
 
         <a href="https://www.google.com" class="btn btn-outline-dark">Sair</a>
 
