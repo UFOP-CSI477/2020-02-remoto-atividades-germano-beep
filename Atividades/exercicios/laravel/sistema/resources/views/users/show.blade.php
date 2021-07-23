@@ -9,6 +9,7 @@
 <p>email:{{$user->email}}</p>
 
 
+<a class="btn btn-warning" href="{{route('users.edit', $user->id)}}">Editar</a>
 <a class="btn btn-primary" href="{{route('users.index')}}">Voltar</a>
 
 

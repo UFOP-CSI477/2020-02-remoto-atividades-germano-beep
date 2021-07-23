@@ -75,7 +75,7 @@ class ProdutoController extends Controller
     {
         // dd($request->all());
 
-        $produto->fill($request->all());
+        $produto->fill($request->all());    
         $produto->save();
 
         session()->flash('mensagem','Produto atualizado com sucesso!');

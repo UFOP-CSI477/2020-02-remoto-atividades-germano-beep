@@ -22,6 +22,8 @@
         <a href="{{route('principal')}}" class="btn btn-outline-dark">Home</a>
 
         <a href="{{route('produtos.index')}}" class="btn btn-outline-dark">Produtos</a>
+        <a href="{{route('users.index')}}" class="btn btn-outline-dark">Usuários</a>
+
 
         <!-- <a href="cadastrar.html" class="btn btn-outline-dark">Cadastrar</a> -->
 

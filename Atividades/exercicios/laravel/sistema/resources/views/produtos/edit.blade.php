@@ -4,7 +4,7 @@
 
 <form action="{{route('produtos.update', $produto->id)}}" method="post">
     @csrf
-    @method('PUT')
+    @method('PUT')  
     <div name="cadastrar">
 
         <div class="form-group">
