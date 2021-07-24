@@ -1,0 +1,24 @@
+@extends('principal')
+
+@section('conteudo')
+
+<h1>Dados da compra</h1>
+
+<p>Id:{{$compra->id}}</p>
+<p>Pessoa:{{$compra->user->name}}</p>
+<p>Produto:{{$compra->produto->nome}}</p>
+
+<a class="btn btn-warning" href="{{route('compras.edit',$compra->id)}}">Editar</a>
+<a class="btn btn-primary" href="{{route('compras.index')}}">Voltar</a>
+
+<form name="frmDelete" action="{{route('compras.destroy', $compra->id)}}" method="post"
+    onsubmit="return confirm('Certeza que deseja excluir o compra?')">
+
+@csrf
+@method('DELETE')
+
+<input class="btn btn-danger"type="submit" value="Excluir">
+</form>
+
+
+@endsection

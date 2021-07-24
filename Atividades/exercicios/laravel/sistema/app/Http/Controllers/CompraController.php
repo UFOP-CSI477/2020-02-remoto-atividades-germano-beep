@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Produto;
+use App\Models\User;
 use App\Models\Compra;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CompraController extends Controller
      */
     public function index()
     {
-        //
+        $compras = Compra::orderBy('id')->get();
+        return view('compras.index', ['compras' => $compras]);
     }
 
     /**
@@ -24,7 +26,10 @@ class CompraController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::orderBy('name')->get();
+        $produtos = Produto::orderBy('nome')->get();
+        return view('compras.create', ['users'=>$users
+        , 'produtos'=>$produtos]);
     }
 
     /**
@@ -35,7 +40,10 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Compra::create($request->all());
+
+        session()->flash('mensagem','compra cadastrada');
+        return redirect()->route('compras.index');
     }
 
     /**
@@ -46,7 +54,7 @@ class CompraController extends Controller
      */
     public function show(Compra $compra)
     {
-        //
+        return view('compras.show',['compra'=> $compra]);
     }
 
     /**
@@ -57,8 +65,12 @@ class CompraController extends Controller
      */
     public function edit(Compra $compra)
     {
-        //
-    }
+        $users = User::orderBy('name')->get();
+        $produtos = Produto::orderBy('nome')->get();    
+        return view('compras.edit', ['compra'=>$compra,
+        'produtos'=>$produtos
+        ,'users'=>$users]);
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +81,12 @@ class CompraController extends Controller
      */
     public function update(Request $request, Compra $compra)
     {
-        //
+        $compra->fill($request->all());    
+        $compra->save();
+
+        session()->flash('mensagem','compra atualizada com sucesso!');
+
+        return redirect()->route('compras.index');
     }
 
     /**
@@ -80,6 +97,8 @@ class CompraController extends Controller
      */
     public function destroy(Compra $compra)
     {
-        //
+        $compra->delete();
+        session()->flash('mensagem','compra excluído com sucesso');
+        return redirect()->route('compras.index');
     }
 }

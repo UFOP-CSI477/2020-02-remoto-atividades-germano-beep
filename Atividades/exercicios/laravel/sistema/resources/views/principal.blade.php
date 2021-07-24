@@ -27,7 +27,7 @@
 
         <!-- <a href="cadastrar.html" class="btn btn-outline-dark">Cadastrar</a> -->
 
-        <a href="https://www.google.com" class="btn btn-outline-dark">Sair</a>
+        <a href="{{route('compras.index')}}" class="btn btn-outline-dark">Compras</a>
 
 
     </div>

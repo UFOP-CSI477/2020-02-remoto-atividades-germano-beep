@@ -10,4 +10,8 @@ class Produto extends Model
     use HasFactory;
 
     protected $fillable = ['nome', 'um'];
+
+    public function compras(){
+        return $this->hasMany(Compras::class);
+    }
 }

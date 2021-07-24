@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Compra;
+use App\Models\User;
+use App\Models\Produto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CompraFactory extends Factory
@@ -22,7 +24,9 @@ class CompraFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'produto_id' => Produto::factory()
+
         ];
     }
 }
