@@ -23,8 +23,8 @@ Route::get('/', function () {
 })->name('principal');
 
 Route::resource('/produtos', ProdutoController::class);
-Route::resource('/compras', CompraController::class);
-Route::resource('/users', UserController::class);
+Route::resource('/compras', CompraController::class)->middleware('auth');
+Route::resource('/users', UserController::class)->middleware('auth');
 
 
 // Route::get('/produtos/todos', function (){
@@ -44,3 +44,7 @@ Route::resource('/users', UserController::class);
 
 
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
