@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,8 +15,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('name')->get();
-        return view('users.index',['users'=>$users]);
+        if (Auth::check()){
+
+            if(Auth::user()->admin == 1){
+                $users = User::orderBy('name')->get();
+                return view('users.index',['users'=>$users]);
+
+            }else{
+                session()->flash('mensagem','Somente administradores');
+                return redirect()->route('principal');
+            }
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
+        
     }
 
     /**
@@ -50,7 +64,19 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', ['user'=>$user]);
+        if (Auth::check()){
+
+            if(Auth::user()->admin == 1){
+                return view('users.show', ['user'=>$user]);
+
+            }else{
+                session()->flash('mensagem','Somente administradores');
+                return redirect()->route('principal');
+            }
+        }else{
+            session()->flash('mensagem', 'Operação não permitida');
+            return redirect()->route('login');
+        }
     }
 
     /**

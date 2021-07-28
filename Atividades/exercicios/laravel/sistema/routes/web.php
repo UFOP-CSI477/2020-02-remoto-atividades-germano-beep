@@ -23,8 +23,8 @@ Route::get('/', function () {
 })->name('principal');
 
 Route::resource('/produtos', ProdutoController::class);
-Route::resource('/compras', CompraController::class)->middleware('auth');
-Route::resource('/users', UserController::class)->middleware('auth');
+Route::resource('/compras', CompraController::class);
+Route::resource('/users', UserController::class);
 
 
 // Route::get('/produtos/todos', function (){
