@@ -19,8 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('admin')->default(0); // para saber se é admin ou n
+            $table->unsignedBigInteger('week_id')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('week_id')
+            ->references('id')
+            ->on('weeks');
         });
     }
 
