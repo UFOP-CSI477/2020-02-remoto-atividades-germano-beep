@@ -19,3 +19,7 @@ Route::get('/', function () {
 })->name('principal');
 
 Route::resource('/equipamentos', EquipamentoController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EquipamentoController extends Controller
 {
@@ -15,7 +16,7 @@ class EquipamentoController extends Controller
     public function index()
     {
         $equipamentos = Equipamento::orderBy('id')->get();
-        return view('equipamentos.index', ['equipamentos'=>$equipamentos]);
+        return view('equipamentos.index', ['equipamentos' => $equipamentos]);
     }
 
     /**
@@ -25,7 +26,17 @@ class EquipamentoController extends Controller
      */
     public function create()
     {
-        return view('equipamentos.create');
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                return view('equipamentos.create');
+            } else {
+                session()->flash('mensagem', 'Não autorizado.');
+                return redirect()->route('principal');
+            }
+        } else {
+            session()->flash('mensagem', 'É necessário logar');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -36,11 +47,12 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-        Equipamento::create($request->all());
 
+
+
+        Equipamento::create($request->all());
         session()->flash('mensagem', 'Equipamento cadastrado com sucesso');
         return redirect()->route('equipamentos.index');
-
     }
 
     /**
@@ -51,7 +63,18 @@ class EquipamentoController extends Controller
      */
     public function show(Equipamento $equipamento)
     {
-        //
+
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                return view('equipamentos.show', ['equipamento' => $equipamento]);
+            } else {
+                session()->flash('mensagem', 'Não autorizado.');
+                return redirect()->route('principal');
+            }
+        } else {
+            session()->flash('mensagem', 'É necessário logar');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -62,7 +85,7 @@ class EquipamentoController extends Controller
      */
     public function edit(Equipamento $equipamento)
     {
-        //
+        return view('equipamentos.edit', ['equipamento' => $equipamento]);
     }
 
     /**
@@ -74,7 +97,12 @@ class EquipamentoController extends Controller
      */
     public function update(Request $request, Equipamento $equipamento)
     {
-        //
+        $equipamento->fill($request->all());
+        $equipamento->save();
+
+        session()->flash('mensagem', 'Equipamento atualizado');
+
+        return redirect()->route('equipamentos.index');
     }
 
     /**
@@ -85,6 +113,8 @@ class EquipamentoController extends Controller
      */
     public function destroy(Equipamento $equipamento)
     {
-        //
+        $equipamento->delete();
+        session()->flash('mensagem', 'Equipamento excluído.');
+        return redirect()->route('equipamentos.index');
     }
 }
