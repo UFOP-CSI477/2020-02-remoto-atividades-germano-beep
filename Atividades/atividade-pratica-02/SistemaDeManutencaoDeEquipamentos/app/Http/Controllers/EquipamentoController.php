@@ -14,7 +14,8 @@ class EquipamentoController extends Controller
      */
     public function index()
     {
-        //
+        $equipamentos = Equipamento::orderBy('id')->get();
+        return view('equipamentos.index', ['equipamentos'=>$equipamentos]);
     }
 
     /**
@@ -24,7 +25,7 @@ class EquipamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('equipamentos.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Equipamento::create($request->all());
+
+        session()->flash('mensagem', 'Equipamento cadastrado com sucesso');
+        return redirect()->route('equipamentos.index');
+
     }
 
     /**
