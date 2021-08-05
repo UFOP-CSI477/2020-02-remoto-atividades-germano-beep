@@ -15,14 +15,19 @@ class CreateWeeksTable extends Migration
     {
         Schema::create('weeks', function (Blueprint $table) {
             $table->id();
-            $table->string('segunda',100)->nullable(true);
-            $table->string('terca',100)->nullable(true);
-            $table->string('quarta',100)->nullable(true);
-            $table->string('quinta',100)->nullable(true);
-            $table->string('sexta',100)->nullable(true);
-            $table->string('sabado',100)->nullable(true);
-            $table->string('domingo',100)->nullable(true);
+            $table->string('segunda', 100)->nullable(true);
+            $table->string('terca', 100)->nullable(true);
+            $table->string('quarta', 100)->nullable(true);
+            $table->string('quinta', 100)->nullable(true);
+            $table->string('sexta', 100)->nullable(true);
+            $table->string('sabado', 100)->nullable(true);
+            $table->string('domingo', 100)->nullable(true);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 

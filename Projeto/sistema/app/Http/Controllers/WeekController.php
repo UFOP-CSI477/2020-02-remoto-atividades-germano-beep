@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Week;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class WeekController extends Controller
 {
@@ -14,7 +16,22 @@ class WeekController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::check()) {
+            // caso já exista uma semana de exercícios do usuário cadastrado
+            $week = Week::where('user_id', Auth::user()->id)->first();
+            
+            if ($week != null) {
+                return view('weeks.index',['week'=>$week]);   
+            } else {
+                return view('home');
+            }
+            
+        } else {
+            session()->flash('mensagem', 'É necessário logar');
+            return redirect()->route('login');
+        }
+        
+       
     }
 
     /**

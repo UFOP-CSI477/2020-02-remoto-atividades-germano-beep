@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WeekController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,15 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Semana;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('principal');
+})->name('principal');
+
+Route::resource('/weeks', WeekController::class);
 
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
