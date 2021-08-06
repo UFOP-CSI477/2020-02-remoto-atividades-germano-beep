@@ -5,7 +5,7 @@
    <title>Cadastro</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="/exercicio05/validar.js"></script>
+    <script src="validar.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
             <input class="btn btn-success" type="submit" value="Cadastrar" onclick="carregar_dados()">
             <input class="btn btn-danger" type="reset" value="Limpar formulário">  
-            <a href="index.html" class="btn btn-primary">Voltar</a>
+            
         </div>
         
     </form>
