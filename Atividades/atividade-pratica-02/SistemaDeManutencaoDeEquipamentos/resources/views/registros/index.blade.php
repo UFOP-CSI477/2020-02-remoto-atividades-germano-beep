@@ -3,7 +3,7 @@
 @section('conteudo')
 
 @if($user->admin == 1)
-<a class="btn btn-primary" href="">Novo Registro</a>
+<a class="btn btn-primary" href="{{route('registros.create')}}">Novo Registro</a>
 @endif
 
 

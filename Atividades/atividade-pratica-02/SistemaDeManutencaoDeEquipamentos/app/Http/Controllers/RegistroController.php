@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipamento;
 use App\Models\Registro;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +35,20 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        //
+
+        $equipamentos = Equipamento::orderBy('nome')->get();
+        $users = User::orderBy('name')->get();
+        if (Auth::check()) {
+            if (Auth::user()->admin == 1) {
+                return view('registros.create', ['equipamentos' => $equipamentos, 'users'=> $users]);
+            } else {
+                session()->flash('mensagem', 'Não autorizado.');
+                return redirect()->route('principal');
+            }
+        } else {
+            session()->flash('mensagem', 'É necessário logar');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -44,7 +59,9 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Registro::create($request->all());
+        session()->flash('mensgem','Registro cadastrado');
+        return redirect()->route('registros.idex');
     }
 
     /**

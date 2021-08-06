@@ -16,9 +16,9 @@ class EquipamentoController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $equipamentos = Equipamento::orderBy('id')->get();
+            $equipamentos = Equipamento::orderBy('nome')->get();
             $user = Auth::user();
-            return view('equipamentos.index', ['equipamentos' => $equipamentos],['user'=>$user]);
+            return view('equipamentos.index', ['equipamentos' => $equipamentos, 'user'=>$user]);
     
         } else {
             session()->flash('mensagem','Necessário logar');
@@ -55,9 +55,6 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
         Equipamento::create($request->all());
         session()->flash('mensagem', 'Equipamento cadastrado com sucesso');
         return redirect()->route('equipamentos.index');

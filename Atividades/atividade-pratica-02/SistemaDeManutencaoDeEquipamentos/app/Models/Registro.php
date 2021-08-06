@@ -9,6 +9,8 @@ class Registro extends Model
 {
     use HasFactory;
     
+    protected $fillable = ['equipameto_id', 'user_id', 'descricao', 'datalimite'];
+
     public function equipamento()
     {
         return $this->belongsTo(Equipamento::class);
