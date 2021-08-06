@@ -10,7 +10,7 @@
             <label for="equipamento_id">Selecione o equipamento:</label>
             <select name="equipamento_id" id="equipamento_id" class="form-control">
                 @foreach($equipamentos as $e)
-                <option value="3">{{$e->nome}}</option>
+                <option value="{{$e->id}}">{{$e->nome}}</option>
                 @endforeach
             </select>
 

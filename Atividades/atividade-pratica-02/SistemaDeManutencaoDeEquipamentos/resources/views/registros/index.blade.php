@@ -33,7 +33,7 @@
             <td>{{$r->equipamento->nome}}</td>
             <td>{{$r->user->name}}</td>
             <td>{{$r->descricao}}</td>
-            <td>{{$r->datalimete}}</td>
+            <td>{{$r->datalimite}}</td>
             @if($user->admin == 1)
             <td><a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">

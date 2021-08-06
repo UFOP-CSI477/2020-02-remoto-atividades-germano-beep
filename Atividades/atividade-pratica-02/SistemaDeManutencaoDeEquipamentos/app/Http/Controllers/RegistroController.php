@@ -61,7 +61,7 @@ class RegistroController extends Controller
     {
         Registro::create($request->all());
         session()->flash('mensgem','Registro cadastrado');
-        return redirect()->route('registros.idex');
+        return redirect()->route('registros.index');
     }
 
     /**
