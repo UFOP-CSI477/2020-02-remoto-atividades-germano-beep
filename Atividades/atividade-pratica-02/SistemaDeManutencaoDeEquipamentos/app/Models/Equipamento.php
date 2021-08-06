@@ -11,7 +11,7 @@ class Equipamento extends Model
 
     protected $fillable = ['nome'];
 
-    public function equipamentos(){
-        return $this->hasMany(Registro::class);
+    public function registros(){
+        return $this->hasMany(Registros::class);
     }
 }

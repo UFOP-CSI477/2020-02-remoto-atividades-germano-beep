@@ -15,8 +15,16 @@ class EquipamentoController extends Controller
      */
     public function index()
     {
-        $equipamentos = Equipamento::orderBy('id')->get();
-        return view('equipamentos.index', ['equipamentos' => $equipamentos]);
+        if (Auth::check()) {
+            $equipamentos = Equipamento::orderBy('id')->get();
+            $user = Auth::user();
+            return view('equipamentos.index', ['equipamentos' => $equipamentos],['user'=>$user]);
+    
+        } else {
+            session()->flash('mensagem','Necessário logar');
+            return redirect()->route('login');
+        }
+
     }
 
     /**

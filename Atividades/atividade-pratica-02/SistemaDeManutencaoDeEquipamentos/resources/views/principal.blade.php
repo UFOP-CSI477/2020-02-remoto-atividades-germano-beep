@@ -29,6 +29,7 @@
 
         <a href="{{route('principal')}}" class="btn btn-outline-dark">Home</a>
         <a href="{{route('equipamentos.index')}}" class="btn btn-outline-dark">Equipamentos</a>
+        <a href="{{route('registros.index')}}" class="btn btn-outline-dark">Manutenções</a>
 
         
 

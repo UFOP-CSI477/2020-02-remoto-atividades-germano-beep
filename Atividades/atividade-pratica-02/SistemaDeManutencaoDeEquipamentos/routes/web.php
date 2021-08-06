@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EquipamentoController;
+use App\Http\Controllers\RegistroController;
+use App\Models\Registro;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('principal');
 })->name('principal');
-
 Route::resource('/equipamentos', EquipamentoController::class);
+Route::resource('/registros', RegistroController::class);
 
 Auth::routes();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Registro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegistroController extends Controller
 {
@@ -14,7 +15,15 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        //
+        $registros = Registro::orderBy('id')->get();
+        $user = Auth::user();
+
+        if (Auth::check()) {
+            return view('registros.index', ['registros' => $registros], ['user' => $user]);
+        } else {
+            session()->flash('mensagem', 'necessário fazer login');
+            return redirect()->route('login');
+        }
     }
 
     /**
