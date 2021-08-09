@@ -19,12 +19,21 @@ class WeekController extends Controller
         if (Auth::check()) {
             // caso já exista uma semana de exercícios do usuário cadastrado
             $week = Week::where('user_id', Auth::user()->id)->first();
-            
-            if ($week != null) {
-                return view('weeks.index',['week'=>$week]);   
+            $user = Auth::user();
+            $flag = true;
+
+            if ($flag) {
+                return view('weeks.index',['week'=>$week, 'user'=> $user]);   
+                
             } else {
-                return view('home');
+                if ($week != null) {
+                    return view('weeks.index',['week'=>$week]);   
+                } else {
+                    return view('home');
+                }
             }
+            
+
             
         } else {
             session()->flash('mensagem', 'É necessário logar');
@@ -41,7 +50,15 @@ class WeekController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::check()) {
+            $user = Auth::user();
+            return view('weeks.create',['user' => $user]);
+        } else {
+            session()->flash('mensagem','É necessário logar');
+            return redirect()->route('login');
+        }
+        
+       
     }
 
     /**
@@ -52,7 +69,22 @@ class WeekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = Auth::user();
+        $week = new Week();
+        $week->segunda = $request->segunda;
+        $week->terca = $request->terca;
+        $week->quarta = $request->quarta;
+        $week->quinta = $request->quinta;
+        $week->sexta = $request->sexta;
+        $week->sabado = $request->sabado;
+        $week->domingo = $request->domingo;
+        $week->user_id = $user->id;
+
+        $week->save();
+
+        session()->flash('mensagem', 'Exercícios semanais cadastrado com sucesso.');
+        return redirect()->route('weeks.index');
     }
 
     /**
