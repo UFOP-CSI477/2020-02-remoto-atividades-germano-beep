@@ -67,7 +67,7 @@ class EquipamentoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Equipamento $equipamento)
-    {
+    {   
 
         if (Auth::check()) {
             if (Auth::user()->admin == 1) {

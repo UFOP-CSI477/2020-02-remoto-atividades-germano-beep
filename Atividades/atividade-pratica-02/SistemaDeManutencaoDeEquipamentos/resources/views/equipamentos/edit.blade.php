@@ -9,7 +9,7 @@
 
     <div class="form-group">
         <label for="nome">Nome:</label>
-       <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome">
     </div>
 
 
