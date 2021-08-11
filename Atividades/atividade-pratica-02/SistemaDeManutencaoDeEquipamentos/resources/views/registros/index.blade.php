@@ -3,19 +3,19 @@
 @section('conteudo')
 
 @if($user->admin == 1)
-<a class="btn btn-primary" href="{{route('registros.create')}}">Novo Registro</a>
+<a class="btn btn-success" href="{{route('registros.create')}}">Novo Registro</a>
 @endif
+<a class="btn btn-primary" href="{{route('suporte')}}">Voltar</a>
 
 
 <table class="table table-bordered table-hover table-striped">
     <caption>Registros</caption>
     <thead>
         <tr class="table-dark">
-            <th>Id</th>
+            <th>Data de término</th>
             <th>Equipamento</th>
             <th>Cliente</th>
             <th>Descrição</th>
-            <th>Previsão término da manutenção</th>
             @if($user->admin == 1)
             <th>Informações</th>
             @endif
@@ -29,11 +29,10 @@
         @foreach($registros as $r)
 
         <tr>
-            <td>{{$r->id}}</td>
+            <td>{{$r->datalimite}}</td>
             <td>{{$r->equipamento->nome}}</td>
             <td>{{$r->user->name}}</td>
             <td>{{$r->descricao}}</td>
-            <td>{{$r->datalimite}}</td>
             @if($user->admin == 1)
             <td><a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">

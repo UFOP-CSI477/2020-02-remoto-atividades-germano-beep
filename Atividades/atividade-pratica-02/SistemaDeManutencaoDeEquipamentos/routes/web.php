@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('principal');
 })->name('principal');
+Route::get('/suporte', function(){
+    return view('suporte');
+})->name('suporte');
 Route::resource('/equipamentos', EquipamentoController::class);
 Route::resource('/registros', RegistroController::class);
 

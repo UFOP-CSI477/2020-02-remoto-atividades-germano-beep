@@ -3,15 +3,15 @@
 @section('conteudo')
 
 @if($user->admin == 1)
-<a class="btn btn-primary" href="{{route('equipamentos.create')}}">Cadastrar</a>
+<a class="btn btn-success" href="{{route('equipamentos.create')}}">Cadastrar</a>
 @endif
+<a class="btn btn-primary" href="{{route('suporte')}}">Voltar</a>
 
 
 <table class="table table-bordered table-hover table-striped">
     <caption>Equipamentos</caption>
     <thead>
         <tr class="table-dark">
-            <th>Id</th>
             <th>Nome</th>
             @if($user->admin == 1)
             <th>Informações</th>
@@ -26,7 +26,6 @@
         @foreach($equipamentos as $e)
 
         <tr>
-            <td>{{$e->id}}</td>
             <td>{{$e->nome}}</td>
             @if($user->admin == 1)
             <td><a href="{{route('equipamentos.show', $e->id)}}">

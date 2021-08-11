@@ -17,7 +17,7 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        $registros = Registro::orderBy('id')->get();
+        $registros = Registro::orderBy('datalimite')->get();
         $user = Auth::user();
 
         if (Auth::check()) {
@@ -60,7 +60,7 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         Registro::create($request->all());
-        session()->flash('mensgem','Registro cadastrado');
+        session()->flash('mensagem','Registro cadastrado');
         return redirect()->route('registros.index');
     }
 

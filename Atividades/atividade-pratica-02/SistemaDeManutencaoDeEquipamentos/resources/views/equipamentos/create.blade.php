@@ -15,7 +15,8 @@
     </div>
 
     <div>
-        <input type="submit" value="Cadastrar" class="btn btn-primary">
+        <input type="submit" value="Cadastrar" class="btn btn-success">
+        <a class="btn btn-primary" href="{{route('equipamentos.index')}}">Voltar</a>
         <input type="reset" value="Limpar formulário" class="btn btn-danger">
 
     </div>
