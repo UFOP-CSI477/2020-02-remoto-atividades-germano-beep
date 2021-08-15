@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistroValidacaoRequest;
 use App\Models\Equipamento;
 use App\Models\Registro;
 use App\Models\User;
@@ -57,7 +58,7 @@ class RegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegistroValidacaoRequest $request)
     {
         Registro::create($request->all());
         session()->flash('mensagem', 'Registro cadastrado');
@@ -109,7 +110,7 @@ class RegistroController extends Controller
      * @param  \App\Models\Registro  $registro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Registro $registro)
+    public function update(RegistroValidacaoRequest $request, Registro $registro)
     {
         $registro->fill($request->all());
         $registro->save();

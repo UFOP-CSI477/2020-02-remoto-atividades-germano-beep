@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EquipamentoValidacaoRequest;
 use App\Models\Equipamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +54,7 @@ class EquipamentoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EquipamentoValidacaoRequest $request)
     {
         Equipamento::create($request->all());
         session()->flash('mensagem', 'Equipamento cadastrado com sucesso');
@@ -100,7 +101,7 @@ class EquipamentoController extends Controller
      * @param  \App\Models\Equipamento  $equipamento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipamento $equipamento)
+    public function update(EquipamentoValidacaoRequest $request, Equipamento $equipamento)
     {
         $equipamento->fill($request->all());
         $equipamento->save();

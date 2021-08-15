@@ -24,7 +24,6 @@ Route::get('/suporte', function(){
 })->name('suporte');
 Route::resource('/equipamentos', EquipamentoController::class);
 Route::resource('/registros', RegistroController::class);
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

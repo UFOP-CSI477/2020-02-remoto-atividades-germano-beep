@@ -5,6 +5,15 @@
 <form action="{{route('registros.update', $registro->id)}}" method="post">
     @csrf
     @method('PUT')
+
+    @if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>@foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div name="cadastrar">
 
         <div class="form-group">

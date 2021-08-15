@@ -2,9 +2,20 @@
 
 @section('conteudo')
 
-<form action="{{route('equipamentos.store')}}" method="post">
+<script src="./validar.js"></script>
+
+<form name="cadastrar" action="{{route('equipamentos.store')}}" method="post">
     @csrf
-    <div name="cadastrar">
+
+    @if(count($errors)> 0)
+    
+    <div class="alert alert-danger">
+        <ul>@foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach</ul>
+    </div>
+    @endif
+    <div>
 
         <div class="form-group">
             <label for="nome">Nome: </label>
@@ -15,11 +26,13 @@
     </div>
 
     <div>
-        <input type="submit" value="Cadastrar" class="btn btn-success">
+        <input type="submit" value="Cadastrar" class="btn btn-success" onclick="carregarDados()">
         <a class="btn btn-primary" href="{{route('equipamentos.index')}}">Voltar</a>
         <input type="reset" value="Limpar formulário" class="btn btn-danger">
 
     </div>
 
+</form>
 
-    @endsection
+
+@endsection
