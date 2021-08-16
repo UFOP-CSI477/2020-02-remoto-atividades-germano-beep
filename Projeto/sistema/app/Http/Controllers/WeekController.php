@@ -106,7 +106,7 @@ class WeekController extends Controller
      */
     public function edit(Week $week)
     {
-        //
+        return view('weeks.edit',['week' => $week]);
     }
 
     /**
@@ -118,7 +118,17 @@ class WeekController extends Controller
      */
     public function update(Request $request, Week $week)
     {
-        //
+        $week->segunda = $request->segunda;
+        $week->terca = $request->terca;
+        $week->quarta = $request->quarta;
+        $week->quinta = $request->quinta;
+        $week->sexta = $request->sexta;
+        $week->sabado = $request->sabado;
+        $week->domingo = $request->domingo;
+        $week->save();
+
+        session()->flash('mensagem','Exercício semanal atualizado.');
+        return redirect()->route('weeks.index', ['week' => $week]);
     }
 
     /**
@@ -129,6 +139,9 @@ class WeekController extends Controller
      */
     public function destroy(Week $week)
     {
-        //
+        $week->delete();
+
+        session()->flash('mensagem', 'Semana de exercícios excluída.');
+        return redirect()->route('weeks.index');
     }
 }

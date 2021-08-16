@@ -2,10 +2,14 @@
 
 @section('conteudo')
 
-@if($user->admin == 1)
+<!-- @if($user->admin == 1)
   <a class="btn btn-primary" href="">Cadastrar</a>
-@endif
+@endif -->
+
+
 @if($week != null)
+<a class="btn btn-warning" href="{{route('weeks.edit', $week->id)}}">Editar semana de exercícios</a>
+
 <table class="table caption-top">
   <caption>Exercícios semanais</caption>
   <tbody>
@@ -46,7 +50,7 @@
 
 @if($week == null)
 
-<a class="btn btn-success"href="{{route('weeks.create')}}">Crie sua nova rotina de exercícios semanais aqui</a>
+<a class="btn btn-success" href="{{route('weeks.create')}}">Crie sua nova rotina de exercícios semanais aqui</a>
 
 @endif
 

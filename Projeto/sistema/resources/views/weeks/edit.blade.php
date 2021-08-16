@@ -2,8 +2,11 @@
 
 @section('conteudo')
 
-<form action="{{route('weeks.store')}}" method="post">
+<form action="{{route('weeks.update', $week->id)}}" method="post">
+
     @csrf
+    @method('PUT')
+
     <h3>Marque os dias da semana que gostaria de exercitar:</h3>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" name="segunda" id="segunda" value="correr">
@@ -33,20 +36,25 @@
         <input class="form-check-input" type="checkbox" name="domingo" id="domingo" value="correr">
         <label class="form-check-label" for="domingo">Domingo</label>
     </div>
-    <div class="visually-hidden form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" name="user_id" id="user_id" value="{{$user->id}}">
-        <label class="form-check-label" for="user_id"></label>
-    </div>
-    
+
+
 
 
     <div>
-        <input type="submit" value="Cadastrar" class="btn btn-success">
-        <input type="reset" value="Limpar formulário" class="btn btn-danger">
-        <a class="btn btn-primary" href="{{route('weeks.index')}}">Voltar</a>
+        <form action="{{route('weeks.destroy', $week->id)}}" method="POST" 
+        onsubmit="return confirm('deseja mesmo excluir?')">
+            <input type="submit" value="Editar" class="btn btn-success">
+            <a class="btn btn-primary" href="{{route('weeks.index')}}">Voltar</a>
 
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="Excluir">
+
+        </form>
 
     </div>
 
 
-@endsection
+
+
+    @endsection
