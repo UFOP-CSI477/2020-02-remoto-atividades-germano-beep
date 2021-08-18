@@ -8,9 +8,8 @@
 
 
 @if($week != null)
-<a class="btn btn-warning" href="{{route('weeks.edit', $week->id)}}">Editar semana de exercícios</a>
 
-<table class="table caption-top">
+<table class="table caption-top text-light">
   <caption>Exercícios semanais</caption>
   <tbody>
     <tr>
@@ -45,6 +44,13 @@
     </tr>
   </tbody>
 </table>
+<form action="{{route('weeks.destroy', $week->id)}}" method="post" onsubmit="return confirm('deseja mesmo excluir?')">
+  <a class="btn btn-warning" href="{{route('weeks.edit', $week->id)}}">Editar semana de exercícios</a>
+  @csrf
+  @method('DELETE')
+  <input class="btn btn-danger" type="submit" value="Excluir">
+
+</form>
 
 @endif
 

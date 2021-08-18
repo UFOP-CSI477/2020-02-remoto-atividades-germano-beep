@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<form action="{{route('weeks.store')}}" method="post">
+<form class="text-light"action="{{route('weeks.store')}}" method="post">
     @csrf
     <h3>Marque os dias da semana que gostaria de exercitar:</h3>
     <div class="form-check form-check-inline">

@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<form action="{{route('weeks.update', $week->id)}}" method="post">
+<form class="text-light"action="{{route('weeks.update', $week->id)}}" method="post">
 
     @csrf
     @method('PUT')
@@ -39,22 +39,15 @@
 
 
 
-
     <div>
-        <form action="{{route('weeks.destroy', $week->id)}}" method="POST" 
-        onsubmit="return confirm('deseja mesmo excluir?')">
-            <input type="submit" value="Editar" class="btn btn-success">
-            <a class="btn btn-primary" href="{{route('weeks.index')}}">Voltar</a>
 
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Excluir">
-
-        </form>
+        <input type="submit" value="Editar" class="btn btn-success">
+        <a class="btn btn-primary" href="{{route('weeks.index')}}">Voltar</a>
 
     </div>
+</form>
 
 
 
 
-    @endsection
+@endsection
