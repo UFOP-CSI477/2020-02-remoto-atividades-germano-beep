@@ -13,7 +13,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <div class="bg-dark d-grid gap-2 d-md-flex justify-content-md" role="group" aria-label="Basic outlined example">
+    <div class="bg-dark bg-gradient d-grid gap-2 d-md-flex justify-content-md" role="group" aria-label="Basic outlined example">
 
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -24,9 +24,17 @@
 
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{{route('principal')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Home</a></li>
+            <li><a href="{{route('home')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Home</a></li>
             <li><a href="{{route('weeks.index')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Exercícios</a></li>
             <li><a href="#" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Alimentação</a></li>
+
+            @if(Auth::check())
+            @if(Auth::user()->id == 1)
+            <li><a href="{{route('users.index')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Área administrativa</a></li>
+            @endif
+            @endif
+
+
             <li>
 
                 @guest
@@ -78,12 +86,16 @@
 
 
 </body>
-<footer class="bg-dark text-white text-center fw-bold" style="position: absolute;
+<!-- <footer class="bg-dark bg-gradient text-white text-center fw-bold" style="position: absolute;
   display: block;
   align-items: center;
   height: 2rem;
   right: 0;
   bottom:0px;
-  left: 0;">Living better</footer>
+  left: 0;">Living better</footer> -->
+
+<footer class="px-3 py-3 bg-dark bg-gradient text-center text-light" style="position: absolute;
+ bottom: 0;
+ width: 100%;">Living better </footer>
 
 </html>

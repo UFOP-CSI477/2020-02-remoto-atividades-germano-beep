@@ -41,7 +41,7 @@
 
     <div>
 
-        <input type="submit" value="Editar" class="btn btn-success">
+        <input type="submit" value="Editar" class="btn btn-success" onclick="return confirm('Editado com sucesso.')">
         <a class="btn btn-primary" href="{{route('weeks.index')}}">Voltar</a>
 
     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeekController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::get('/', function () {
 })->name('principal');
 
 Route::resource('/weeks', WeekController::class);
+Route::resource('/users', UserController::class);
 
 
 
