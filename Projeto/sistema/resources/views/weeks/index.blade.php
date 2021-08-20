@@ -9,7 +9,7 @@
 
 @if($week != null)
 <div class="mx-3">
-  <table class=" table table-dark table-hover caption-top text-light">
+  <table class=" table table-dark table-hover caption-top text-light table-striped">
     <caption class="fw-bold text-white">Exercícios semanais</caption>
     <tbody>
       <tr>
@@ -45,7 +45,7 @@
     </tbody>
   </table>
   <form action="{{route('weeks.destroy', $week->id)}}" method="post" onsubmit="return confirm('deseja mesmo excluir?')">
-    <a class="btn btn-warning" href="{{route('weeks.edit', $week->id)}}">Editar semana de exercícios</a>
+    <a class="btn btn-warning" href="{{route('weeks.edit', $week->id)}}">Editar</a>
     @csrf
     @method('DELETE')
     <input class="btn btn-danger" type="submit" value="Excluir" onsubmit="return confirm('Certeza que deseja excluir?')">
@@ -56,7 +56,7 @@
 
   @if($week == null)
 
-  <a class="btn btn-success" href="{{route('weeks.create')}}">Crie sua nova rotina de exercícios semanais aqui</a>
+  <a class="btn btn-success" href="{{route('weeks.create')}}">Criar nova rotina de exercícios</a>
 
   @endif
 </div>

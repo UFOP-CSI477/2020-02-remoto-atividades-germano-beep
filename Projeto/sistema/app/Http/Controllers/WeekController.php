@@ -83,10 +83,9 @@ class WeekController extends Controller
 
         $week->save();
 
-        $mensagem = 'Semana de exercícios cadastrada';
 
         session()->flash('mensagem', 'Exercícios semanais cadastrado com sucesso.');
-        return redirect()->route('weeks.index', ['mensagem'=>$mensagem]);
+        return redirect()->route('weeks.index');
     }
 
     /**

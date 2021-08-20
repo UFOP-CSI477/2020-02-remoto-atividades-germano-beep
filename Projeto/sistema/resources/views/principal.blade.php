@@ -26,7 +26,7 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{{route('home')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Home</a></li>
             <li><a href="{{route('weeks.index')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Exercícios</a></li>
-            <li><a href="#" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Alimentação</a></li>
+            <li><a href="{{route('alimentations.index')}}" class="btn btn-outline-primary nav-link px-2 link-light fw-bold">Alimentação</a></li>
 
             @if(Auth::check())
             @if(Auth::user()->id == 1)
