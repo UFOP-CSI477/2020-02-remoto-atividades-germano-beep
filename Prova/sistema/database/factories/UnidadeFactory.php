@@ -22,7 +22,10 @@ class UnidadeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome' => $this->faker->company,
+            'bairro' => $this->faker->streetName,
+            'cidade' => $this->faker->city,
+            'data_nascimento' => $this->faker->dateTimeThisCentury($max='now', $timezone =null),
         ];
     }
 }
