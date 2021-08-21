@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class UserController extends Controller
     {
         $users = User::orderBy('name')->get();
 
-        return view('users.index',['users'=>$users]);
+        return view('users.index', ['users' => $users]);
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -36,7 +37,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->email = $request->email;
+        $user->bairro = $request->bairro;
+        $user->cidade = $request->cidade;
+        $user->data_nascimento=$request->data_nascimento;
+        $user->admin = $request->admin;
+
+        $user->save();
+
+
+        session()->flash('mensagem', 'pessoa cadastrada com sucesso');
+        return redirect()->route('users.index');
     }
 
     /**
