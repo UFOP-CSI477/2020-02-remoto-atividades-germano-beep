@@ -22,7 +22,10 @@ class VacinaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome' => $this->faker->userName(),
+            'fabricante' => $this->faker->company(),
+            'doses'=>$this->faker->numberBetween(1, 500),
+
         ];
     }
 }

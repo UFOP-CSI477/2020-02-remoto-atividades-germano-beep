@@ -14,7 +14,9 @@ class VacinaController extends Controller
      */
     public function index()
     {
-        //
+        $vacinas = Vacina::orderBy('nome')->get();
+
+        return view('vacinas.index', ['vacinas' => $vacinas]);
     }
 
     /**
@@ -24,7 +26,7 @@ class VacinaController extends Controller
      */
     public function create()
     {
-        //
+        return view('vacinas.create');
     }
 
     /**
@@ -35,7 +37,10 @@ class VacinaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Vacina::create($request->all());
+
+        session()->flash('mensagem', 'vacina cadastrada');
+        return redirect()->route('vacinas.index');
     }
 
     /**
@@ -46,7 +51,7 @@ class VacinaController extends Controller
      */
     public function show(Vacina $vacina)
     {
-        //
+        return view('vacinas.show',['vacina'=> $vacina]);
     }
 
     /**
@@ -57,7 +62,8 @@ class VacinaController extends Controller
      */
     public function edit(Vacina $vacina)
     {
-        //
+        return view('vacinas.edit',['vacina'=>$vacina]);
+
     }
 
     /**
@@ -69,7 +75,10 @@ class VacinaController extends Controller
      */
     public function update(Request $request, Vacina $vacina)
     {
-        //
+        $vacina->fill($request->all());
+        $vacina->save();
+        session()->flash('mensagem','Vacina atualizada');
+        return redirect()->route('vacinas.index');
     }
 
     /**
@@ -80,6 +89,9 @@ class VacinaController extends Controller
      */
     public function destroy(Vacina $vacina)
     {
-        //
+        $vacina->delete();
+
+        session()->flash('mensagem','Vacina excluída.');
+        return redirect()->route('vacinas.index');
     }
 }

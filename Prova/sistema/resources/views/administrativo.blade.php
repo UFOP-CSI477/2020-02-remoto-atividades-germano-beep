@@ -24,7 +24,7 @@
 
             </li>
             <li>
-                <a href="" class="btn btn-outline-light fw-bold">Vacinas</a>
+                <a href="{{route('vacinas.index')}}" class="btn btn-outline-light fw-bold">Vacinas</a>
             </li>
             <li>
                 <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Pessoas</a>

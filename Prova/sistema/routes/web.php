@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnidadeController;
+use App\Http\Controllers\VacinaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,6 @@ Route::get('/administrativo.blade.php', function () {
 })->name('administrativo');
 Route::resource('/users', UserController::class);
 Route::resource('/unidades', UnidadeController::class);
+Route::resource('/vacinas', VacinaController::class);
+
 
