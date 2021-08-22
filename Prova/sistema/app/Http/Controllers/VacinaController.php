@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VacinaFormRequest;
 use App\Models\Vacina;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class VacinaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VacinaFormRequest $request)
     {
         Vacina::create($request->all());
 
@@ -73,7 +74,7 @@ class VacinaController extends Controller
      * @param  \App\Models\Vacina  $vacina
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacina $vacina)
+    public function update(VacinaFormRequest $request, Vacina $vacina)
     {
         $vacina->fill($request->all());
         $vacina->save();
