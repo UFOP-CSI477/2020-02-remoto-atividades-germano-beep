@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UnidadeFormRequest;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class UnidadeController extends Controller
      */
     public function index()
     {
-        //
+        $unidades = Unidade::orderBy('nome')->get();
+
+        return view('unidades.index', ['unidades' => $unidades]);
     }
 
     /**
@@ -24,7 +27,7 @@ class UnidadeController extends Controller
      */
     public function create()
     {
-        //
+        return view('unidades.create');
     }
 
     /**
@@ -33,9 +36,12 @@ class UnidadeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnidadeFormRequest $request)
     {
-        //
+        Unidade::create($request->all());
+
+        session()->flash('mensagem','unidade registrada');
+        return redirect()->route('unidades.index');
     }
 
     /**
@@ -46,7 +52,7 @@ class UnidadeController extends Controller
      */
     public function show(Unidade $unidade)
     {
-        //
+        return view('unidades.show',['unidade'=>$unidade]);
     }
 
     /**
@@ -57,7 +63,7 @@ class UnidadeController extends Controller
      */
     public function edit(Unidade $unidade)
     {
-        //
+        return view('unidades.edit',['unidade'=>$unidade]);
     }
 
     /**
@@ -67,9 +73,14 @@ class UnidadeController extends Controller
      * @param  \App\Models\Unidade  $unidade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unidade $unidade)
+    public function update(UnidadeFormRequest $request, Unidade $unidade)
     {
-        //
+        $unidade->fill($request->all());
+        $unidade->save();
+
+        session()->flash('mensagem','unidade atualizada');
+        return redirect()->route('unidades.index');
+        
     }
 
     /**
@@ -80,6 +91,9 @@ class UnidadeController extends Controller
      */
     public function destroy(Unidade $unidade)
     {
-        //
+        $unidade->delete();
+
+        session()->flash('mensagem','Unidade deletada');
+        return redirect()->route('unidades.index');
     }
 }

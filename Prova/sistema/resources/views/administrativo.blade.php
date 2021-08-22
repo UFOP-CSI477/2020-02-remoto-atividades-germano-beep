@@ -19,7 +19,7 @@
                 </a>
 
             <li>
-                <a class="btn btn-outline-light fw-bold"href="/">Área Geral</a>
+                <a class="btn btn-outline-light fw-bold" href="/">Área Geral</a>
             </li>
 
             </li>
@@ -27,7 +27,10 @@
                 <a href="" class="btn btn-outline-light fw-bold">Vacinas</a>
             </li>
             <li>
-                <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Users</a>
+                <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Pessoas</a>
+            </li>
+            <li>
+                <a href="{{route('unidades.index')}}" class="btn btn-outline-light fw-bold">Unidades</a>
             </li>
 
 
@@ -43,7 +46,7 @@
     @yield('conteudo')
 </body>
 
-<footer class="bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
+<footer class="py-3 bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
  bottom: 0;
  width: 100%;"> Vaccine
 

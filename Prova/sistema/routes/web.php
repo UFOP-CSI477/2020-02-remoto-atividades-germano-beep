@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UnidadeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,5 @@ Route::get('/administrativo.blade.php', function () {
     return view('administrativo');
 })->name('administrativo');
 Route::resource('/users', UserController::class);
+Route::resource('/unidades', UnidadeController::class);
+

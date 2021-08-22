@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
         $user = new User();
         $user->name = $request->name;
@@ -82,7 +83,7 @@ class UserController extends Controller
      * @param  int  User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserFormRequest $request, User $user)
     {
         $user->name = $request->name;
         $user->password = $request->password;
