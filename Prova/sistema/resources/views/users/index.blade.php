@@ -6,6 +6,11 @@
 
 
 
+@if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
 <div class="table-responsive mx-3">
     <table class="table-responsive table table-danger table-bordered table-hover caption-top table-striped">
         <caption class="fw-bold text-dark">Usuários</caption>

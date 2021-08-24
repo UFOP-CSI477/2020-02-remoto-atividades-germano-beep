@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnidadeController;
@@ -24,5 +25,6 @@ Route::get('/administrativo.blade.php', function () {
 Route::resource('/users', UserController::class);
 Route::resource('/unidades', UnidadeController::class);
 Route::resource('/vacinas', VacinaController::class);
+Route::resource('/registros', RegistroController::class);
 
 

@@ -40,8 +40,8 @@ class VacinaController extends Controller
     {
         Vacina::create($request->all());
 
-        session()->flash('mensagem', 'vacina cadastrada');
-        return redirect()->route('vacinas.index');
+        
+        return redirect()->route('vacinas.index')->with('alert','Vacina cadastrada.');
     }
 
     /**
@@ -78,8 +78,8 @@ class VacinaController extends Controller
     {
         $vacina->fill($request->all());
         $vacina->save();
-        session()->flash('mensagem','Vacina atualizada');
-        return redirect()->route('vacinas.index');
+       
+        return redirect()->route('vacinas.index')->with('alert','Vacina atulizada.');
     }
 
     /**
@@ -92,7 +92,7 @@ class VacinaController extends Controller
     {
         $vacina->delete();
 
-        session()->flash('mensagem','Vacina excluída.');
-        return redirect()->route('vacinas.index');
+       
+        return redirect()->route('vacinas.index')->with('alert','Vacina deletada.');
     }
 }

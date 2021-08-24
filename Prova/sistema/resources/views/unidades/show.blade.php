@@ -25,7 +25,7 @@
         </thead>
         <tbody>
 
-           
+
 
             <tr>
                 <td>{{$unidade->id}}</td>
@@ -42,13 +42,13 @@
                     </a></td>
 
             </tr>
-            
+
 
         </tbody>
 
     </table>
 </div>
-<form name="frmDelete" action="{{route('unidades.destroy', $unidade->id)}}" method="POST" onsubmit="return confirm('Certeza que deseja excluir o usuário?')">
+<form name="frmDelete" action="{{route('unidades.destroy', $unidade->id)}}" method="POST" onsubmit="return confirm('Certeza que deseja excluir o Unidade?')">
     <a class="btn btn-warning" href="{{route('unidades.edit', $unidade->id)}}">Editar</a>
     <a class="btn btn-primary" href="{{route('unidades.index')}}">Voltar</a>
 

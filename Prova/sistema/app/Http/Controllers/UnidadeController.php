@@ -41,7 +41,7 @@ class UnidadeController extends Controller
         Unidade::create($request->all());
 
         session()->flash('mensagem','unidade registrada');
-        return redirect()->route('unidades.index');
+        return redirect()->route('unidades.index')->with('alert','Unidade cadastrada');
     }
 
     /**
@@ -78,8 +78,8 @@ class UnidadeController extends Controller
         $unidade->fill($request->all());
         $unidade->save();
 
-        session()->flash('mensagem','unidade atualizada');
-        return redirect()->route('unidades.index');
+        
+        return redirect()->route('unidades.index')->with('alert', 'Unidade editada.');
         
     }
 
@@ -93,7 +93,7 @@ class UnidadeController extends Controller
     {
         $unidade->delete();
 
-        session()->flash('mensagem','Unidade deletada');
-        return redirect()->route('unidades.index');
+        
+        return redirect()->route('unidades.index')->with('alert','Unidade deletada.');
     }
 }

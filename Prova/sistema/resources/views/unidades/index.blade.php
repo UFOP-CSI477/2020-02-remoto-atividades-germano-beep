@@ -4,6 +4,11 @@
 
 <a class="btn btn-primary" href="{{route('unidades.create')}}">Cadastrar</a>
 
+@if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
 
 
 <div class="table-responsive mx-3">

@@ -32,6 +32,9 @@
             <li>
                 <a href="{{route('unidades.index')}}" class="btn btn-outline-light fw-bold">Unidades</a>
             </li>
+            <li>
+                <a href="{{route('registros.index')}}" class="btn btn-outline-light fw-bold">Registros</a>
+            </li>
 
 
         </ul>

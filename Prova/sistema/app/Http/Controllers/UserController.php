@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Queue\Jobs\RedisJob;
 
 class UserController extends Controller
 {
@@ -50,8 +51,8 @@ class UserController extends Controller
         $user->save();
 
 
-        session()->flash('mensagem', 'pessoa cadastrada com sucesso');
-        return redirect()->route('users.index');
+        
+        return redirect()->route('users.index')->with('alert','Pessoa cadastrada.');
     }
 
     /**
@@ -96,8 +97,8 @@ class UserController extends Controller
         $user->save();
 
 
-        session()->flash('mensagem', 'edições de usuário salvas.');
-        return redirect()->route('users.index');
+        
+        return redirect()->route('users.index')->with('alert','Pessoa editada.');
     }
 
     /**
@@ -110,8 +111,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        $users = User::orderBy('name')->get();
-        session()->flash('message', 'Usuário deletado.');
-        return view('users.index', ['users' => $users]);
+        
+        return redirect()->route('users.index')->with('alert','Pessoa cancelada.');
     }
 }

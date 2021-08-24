@@ -14,4 +14,9 @@ class Vacina extends Model
         'fabricante',
         'doses',
     ];
+
+    public function registros()
+    {
+        return $this->hasMany(Registro::class);
+    }
 }

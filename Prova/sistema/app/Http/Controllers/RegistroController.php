@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistroFormRequest;
 use App\Models\Registro;
+use App\Models\User;
+use App\Models\Unidade;
+use App\Models\Vacina;
 use Illuminate\Http\Request;
 
 class RegistroController extends Controller
@@ -14,7 +18,9 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        //
+
+        $registros = Registro::orderBy('id')->get();
+        return view('registros.index', ['registros' => $registros]);
     }
 
     /**
@@ -24,7 +30,15 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::orderBy('name')->get();
+        $unidades = Unidade::orderBy('nome')->get();
+        $vacinas = Vacina::orderBy('nome')->get();
+
+        return view('registros.create', [
+            'users' => $users,
+            'unidades' => $unidades,
+            'vacinas' => $vacinas
+        ]);
     }
 
     /**
@@ -33,9 +47,18 @@ class RegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegistroFormRequest $request)
     {
-        //
+        $registro = new Registro;
+        $registro->user_id = $request->user_id;
+        $registro->unidade_id = $request->unidade_id;
+        $registro->vacina_id = $request->vacina_id;
+        $registro->data = $request->data;
+        $registro->dose = $request->dose;
+
+        $registro->save();
+
+        return redirect()->route('registros.index')->with('alert','Registro cadastrado!');  
     }
 
     /**
@@ -46,7 +69,7 @@ class RegistroController extends Controller
      */
     public function show(Registro $registro)
     {
-        //
+        return view('registros.show',['registro'=> $registro]);
     }
 
     /**
@@ -57,7 +80,14 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        //
+        $users = User::orderBy('name')->get();
+        $unidades = Unidade::orderBy('nome')->get();
+        $vacinas = Vacina::orderBy('nome')->get();
+        return view('registros.edit', 
+        ['registro'=>$registro,
+        'users'=> $users,
+        'unidades'=>$unidades,
+        'vacinas'=>$vacinas]);
     }
 
     /**
@@ -67,9 +97,17 @@ class RegistroController extends Controller
      * @param  \App\Models\Registro  $registro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Registro $registro)
+    public function update(RegistroFormRequest $request, Registro $registro)
     {
-        //
+        $registro->user_id = $request->user_id;
+        $registro->unidade_id = $request->unidade_id;
+        $registro->vacina_id = $request->vacina_id;
+        $registro->data = $request->data;
+        $registro->dose = $request->dose;
+
+        $registro->save();
+
+        return redirect()->route('registros.index')->with('alert','Registro editado.');
     }
 
     /**
@@ -80,6 +118,8 @@ class RegistroController extends Controller
      */
     public function destroy(Registro $registro)
     {
-        //
+        $registro->delete();
+
+        return redirect()->route('registros.index')->with('alert','Registro deletado.');
     }
 }

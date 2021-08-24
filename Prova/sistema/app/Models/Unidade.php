@@ -15,4 +15,9 @@ class Unidade extends Model
         'cidade',
         'data_nascimento',
     ];
+
+    public function registros()
+    {
+        return $this->hasMany(Registro::class);
+    }
 }
