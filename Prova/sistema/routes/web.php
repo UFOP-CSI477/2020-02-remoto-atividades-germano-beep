@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\VacinaController;
+use App\Http\Controllers\PessoaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,8 @@ Route::resource('/users', UserController::class);
 Route::resource('/unidades', UnidadeController::class);
 Route::resource('/vacinas', VacinaController::class);
 Route::resource('/registros', RegistroController::class);
+Route::resource('/pessoas', PessoaController::class);
+
 
 
 

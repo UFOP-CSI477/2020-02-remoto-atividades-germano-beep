@@ -25,7 +25,7 @@ class UnidadeFactory extends Factory
             'nome' => $this->faker->company(),
             'bairro' => $this->faker->streetName(),
             'cidade' => $this->faker->city(),
-            'data_nascimento' => $this->faker->dateTimeThisCentury($max='now', $timezone =null),
+            'data_nascimento' => $this->faker->dateTimeThisCentury($max='now'),
         ];
     }
 }

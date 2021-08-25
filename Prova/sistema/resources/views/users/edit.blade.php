@@ -32,18 +32,7 @@
                 <input type="password" name="password" id="password" class="form-control" placeholder="password">
 
             </div>
-            <div>
-                <label for="bairro">Bairro:</label>
-                <input type="text" name="bairro" id="bairro" class="form-control" value="{{$user->bairro}}">
-            </div>
-            <div>
-                <label for="cidade">Cidade:</label>
-                <input type="text" name="cidade" id="cidade" class="form-control" value="{{$user->cidade}}">
-            </div>
-            <div>
-                <label for="data_nascimento">Data de Nascimento: {{$user->data_nascimento}}</label>
-                <input type="date" name="data_nascimento" id="data_nascimento" class="form-control">
-            </div>
+            
             <div class="form-group">
                 <label for="admin">Administrador:</label>
                 <input type="text" name="admin" id="admin" class="form-control" value="{{$user->admin}}">

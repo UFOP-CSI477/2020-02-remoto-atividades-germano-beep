@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\VacinaFormRequest;
 use App\Models\Vacina;
+use App\Models\Registro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -94,9 +95,13 @@ class VacinaController extends Controller
      */
     public function destroy(Vacina $vacina)
     {
-        $vacina->delete();
-
-       
-        return redirect()->route('vacinas.index')->with('alert','Vacina deletada.');
+        $registro = Registro::where('vacina_id', $vacina->id)->first();
+        if ($registro) {
+            return redirect()->route('vacinas.index')
+                ->with('Integrity constraint violation', 'Não foi possível deletar esta vacina pelo fato dela estar cadastrada em um ou mais registros.');
+        } else {
+            $vacina->delete();
+            return redirect()->route('vacinas.index')->with('alert', 'vacina deletada');
+        }
     }
 }

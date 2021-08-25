@@ -3,7 +3,7 @@
 @section('conteudo')
 <div>
 
-    <form class="bg-light mx-5" action="{{route('users.store')}}" method="post">
+    <form class="bg-light mx-5" action="{{route('pessoas.store')}}" method="post">
         @if(count($errors)>0)
         <div class="alert alert-danger">
             <ul>@foreach($errors->all() as $error)
@@ -13,28 +13,28 @@
         </div>
         @endif
         @csrf
-        <h3 class="text-dark fw-bold">Cadastrar novo usuário:</h3>
+        <h3 class="text-dark fw-bold">Cadastrar nova pessoa:</h3>
         <div name="cadastrar">
 
             <div class="form-group">
-                <label for="name">Name: </label>
+                <label for="name">Nome: </label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="João da Silva">
             </div>
 
             <div class="form-group">
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="joao@email.com">
+                <label for="bairro">Bairro: </label>
+                <input type="bairro" name="bairro" id="bairro" class="form-control" placeholder="São José">
             </div>
 
             <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="password">
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Belo Horizonte">
 
             </div>
             
             <div class="form-group">
-                <label for="admin">Administrador:</label>
-                <input type="text" name="admin" id="admin" class="form-control" placeholder="0 ou 1">
+                <label for="data_nascimento">Data de nascimento:</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" class="form-control">
 
             </div>
 

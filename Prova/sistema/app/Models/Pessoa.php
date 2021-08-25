@@ -15,7 +15,6 @@ class Pessoa extends Model
         'cidade',
         'data_nascimento',
 
-        
     ];
     public function registros()
     {

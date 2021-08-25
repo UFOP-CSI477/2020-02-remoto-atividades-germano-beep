@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UnidadeFormRequest;
 use App\Models\Unidade;
+use App\Models\Registro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -96,9 +97,16 @@ class UnidadeController extends Controller
      */
     public function destroy(Unidade $unidade)
     {
-        $unidade->delete();
+       
 
+        $registro = Registro::where('unidade_id', $unidade->id)->first();
+        if ($registro) {
+            return redirect()->route('unidades.index')
+                ->with('Integrity constraint violation', 'Não foi possível deletar esta unidade pelo fato dela estar cadastrada em um ou mais registros.');
+        } else {
+            $unidade->delete();
+            return redirect()->route('unidades.index')->with('alert', 'unidade deletada');
+        }
         
-        return redirect()->route('unidades.index')->with('alert','Unidade deletada.');
     }
 }

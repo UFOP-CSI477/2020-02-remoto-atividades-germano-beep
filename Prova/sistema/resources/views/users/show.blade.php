@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<table class="table table-danger table-bordered table-hover caption-top table-striped">
+<table class="table table-light table-bordered table-hover caption-top table-striped">
     <caption class="fw-bold text-dark">Dados do usuário</caption>
     <thead>
         <tr class="table-dark">

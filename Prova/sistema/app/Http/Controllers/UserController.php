@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $users = User::orderBy('name')->get();
         if(Auth::check()){
-            if(Auth::user()->Admin == 1){
+            if(Auth::user()->admin == 1){
 
                 return view('users.index', ['users' => $users]);
             }
@@ -54,9 +54,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = $request->password;
         $user->email = $request->email;
-        $user->bairro = $request->bairro;
-        $user->cidade = $request->cidade;
-        $user->data_nascimento = $request->data_nascimento;
+        
         $user->admin = $request->admin;
 
         $user->save();
@@ -100,9 +98,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->password = $request->password;
         $user->email = $request->email;
-        $user->bairro = $request->bairro;
-        $user->cidade = $request->cidade;
-        $user->data_nascimento = $request->data_nascimento;
+        
         $user->admin = $request->admin;
 
         $user->save();

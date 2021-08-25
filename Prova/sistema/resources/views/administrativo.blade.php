@@ -11,7 +11,7 @@
 
     <title>Vacinação</title>
 
-    <div class="bg-danger bg-gradient">
+    <div class="bg-light shadow-lg bg-gradient">
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li>
                 <a href="https://icons8.com/icon/uR76IG2xWAIk/syringe">
@@ -19,28 +19,28 @@
                 </a>
 
             <li>
-                <a class="btn btn-outline-light fw-bold" href="/">Área Geral</a>
+                <a class="nav-link p-2 fw-bold" href="/">Área Geral</a>
             </li>
 
             </li>
             <li>
-                <a href="{{route('vacinas.index')}}" class="btn btn-outline-light fw-bold">Vacinas</a>
+                <a href="{{route('vacinas.index')}}" class="nav-link p-2 fw-bold">Vacinas</a>
             </li>
             <li>
-                <a href="#" class="btn btn-outline-light fw-bold">Pessoas</a>
+                <a href="{{route('pessoas.index')}}" class="nav-link p-2 fw-bold">Pessoas</a>
             </li>
             <li>
-                <a href="{{route('unidades.index')}}" class="btn btn-outline-light fw-bold">Unidades</a>
+                <a href="{{route('unidades.index')}}" class="nav-link p-2 fw-bold">Unidades</a>
             </li>
             <li>
-                <a href="{{route('registros.index')}}" class="btn btn-outline-light fw-bold">Registros</a>
+                <a href="{{route('registros.index')}}" class="nav-link p-2 fw-bold">Registros</a>
             </li>
          
 
            
            
             <li>
-                <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Users</a>
+                <a href="{{route('users.index')}}" class="nav-link p-2 fw-bold">Users</a>
             </li>
 
            
@@ -89,6 +89,13 @@
     @if (session('alert'))
     <div class="alert alert-success">
         {{ session('alert') }}
+    </div>
+@endif
+
+
+@if (session('Integrity constraint violation'))
+    <div class="alert alert-danger">
+        {{ session('Integrity constraint violation') }}
     </div>
 @endif
     @yield('conteudo')

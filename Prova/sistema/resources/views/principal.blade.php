@@ -11,9 +11,9 @@
 
     <title>Vacinação</title>
 
-    <div class="bg-danger bg-gradient">
+    <div class="bg-light shadow-lg bg-gradient">
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li>
+            <li class="nav-item col-6 col-md-auto">
                 <a href="https://icons8.com/icon/uR76IG2xWAIk/syringe">
                     <img class="w-50" src="https://img.icons8.com/glyph-neue/64/000000/syringe.png" />
                 </a>
@@ -21,10 +21,10 @@
 
             </li>
             <li>
-                <a href="" class="btn btn-outline-light fw-bold">Área Geral</a>
+                <a href="" class="nav-link p-2 fw-bold">Área Geral</a>
             </li>
             <li>
-                <a href="./administrativo.blade.php" class="btn btn-outline-light fw-bold">Área Administrativa</a>
+                <a class="nav-link p-2 fw-bold" href="./administrativo.blade.php" class="btn btn-outline-light fw-bold">Área Administrativa</a>
             </li>
             @guest
     @if (Route::has('login'))

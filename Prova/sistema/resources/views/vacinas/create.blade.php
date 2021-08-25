@@ -28,10 +28,14 @@
 
             <div class="form-group">
                 <label for="doses">Quantidade de doses:</label>
-                <input type="number" name="doses" id="doses" class="form-control" placeholder="450">
+                <select name="doses" id="doses" class="form-control">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+
+                </select>
 
             </div>
-           
+
 
 
 
