@@ -35,7 +35,7 @@
 
             <tr>
                 <td>{{$r->id}}</td>
-                <td>{{$r->user->name}}</td>
+                <td>{{$r->pessoa->name}}</td>
                 
                 <td>{{$r->unidade->nome}}</td>
                 <td>{{$r->vacina->nome}}</td>

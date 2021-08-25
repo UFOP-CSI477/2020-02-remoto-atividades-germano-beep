@@ -19,9 +19,7 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>E-mail</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>Data de nascimento</th>
+                
                 <th>Admin</th>
                 <th>Exibir</th>
 
@@ -36,9 +34,7 @@
                 <td>{{$u->id}}</td>
                 <td>{{$u->name}}</td>
                 <td>{{$u->email}}</td>
-                <td>{{$u->bairro}}</td>
-                <td>{{$u->cidade}}</td>
-                <td>{{$u->data_nascimento}}</td>
+                
                 <td>{{$u->admin}}</td>
                 <td><a href="{{route('users.show',$u->id)}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">

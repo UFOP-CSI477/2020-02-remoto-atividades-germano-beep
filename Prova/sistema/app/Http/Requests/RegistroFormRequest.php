@@ -24,7 +24,7 @@ class RegistroFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=>'required',
+            'pessoa_id'=>'required',
             'unidade_id'=>'required',
             'vacina_id'=>'required',
             'data'=>'required',

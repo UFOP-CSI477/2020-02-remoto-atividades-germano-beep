@@ -27,7 +27,7 @@
                 <a href="{{route('vacinas.index')}}" class="btn btn-outline-light fw-bold">Vacinas</a>
             </li>
             <li>
-                <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Pessoas</a>
+                <a href="#" class="btn btn-outline-light fw-bold">Pessoas</a>
             </li>
             <li>
                 <a href="{{route('unidades.index')}}" class="btn btn-outline-light fw-bold">Unidades</a>
@@ -35,8 +35,48 @@
             <li>
                 <a href="{{route('registros.index')}}" class="btn btn-outline-light fw-bold">Registros</a>
             </li>
+         
+
+           
+           
+            <li>
+                <a href="{{route('users.index')}}" class="btn btn-outline-light fw-bold">Users</a>
+            </li>
+
+           
+            
 
 
+            @guest
+            @if (Route::has('login'))
+
+            <a class="btn btn-outline-primary" href="{{ route('login') }}">Entrar</a>
+
+            @endif
+
+            @if (Route::has('register'))
+
+            <a class="btn btn-outline-primary" href="{{ route('register') }}">Criar nova conta</a>
+
+            @endif
+            @else
+            <!-- <div class="nav-item dropdown"> -->
+            <a id="navbarDropdown" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+            <!-- </div> -->
+            @endguest
         </ul>
     </div>
 </head>
@@ -46,13 +86,18 @@
     height: 100vh;
     width: 100vw;
     background-size: cover;">
+    @if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
     @yield('conteudo')
 </body>
 
-<footer class="py-3 bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
+<!-- <footer class="py-3 bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
  bottom: 0;
  width: 100%;"> Vaccine
 
-</footer>
+</footer> -->
 
 </html>

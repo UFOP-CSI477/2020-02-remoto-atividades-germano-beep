@@ -16,8 +16,8 @@ class Registro extends Model
         'data',
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function pessoa(){
+        return $this->belongsTo(Pessoa::class);
     }
 
     public function vacina()

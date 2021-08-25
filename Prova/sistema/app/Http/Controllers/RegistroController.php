@@ -7,6 +7,9 @@ use App\Models\Registro;
 use App\Models\User;
 use App\Models\Unidade;
 use App\Models\Vacina;
+use App\Models\Pessoa;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class RegistroController extends Controller
@@ -18,9 +21,13 @@ class RegistroController extends Controller
      */
     public function index()
     {
-
         $registros = Registro::orderBy('id')->get();
-        return view('registros.index', ['registros' => $registros]);
+        if(Auth::check()){
+            return view('registros.index', ['registros' => $registros]);
+        }else{
+            return redirect()->route('login')->with('alert','É necessário logar');
+
+        }
     }
 
     /**
@@ -30,12 +37,12 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        $users = User::orderBy('name')->get();
+        $pessoas = Pessoa::orderBy('name')->get();
         $unidades = Unidade::orderBy('nome')->get();
         $vacinas = Vacina::orderBy('nome')->get();
 
         return view('registros.create', [
-            'users' => $users,
+            'pessoas' => $pessoas,
             'unidades' => $unidades,
             'vacinas' => $vacinas
         ]);
@@ -50,7 +57,7 @@ class RegistroController extends Controller
     public function store(RegistroFormRequest $request)
     {
         $registro = new Registro;
-        $registro->user_id = $request->user_id;
+        $registro->pessoa_id = $request->pessoa_id;
         $registro->unidade_id = $request->unidade_id;
         $registro->vacina_id = $request->vacina_id;
         $registro->data = $request->data;
@@ -80,12 +87,12 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        $users = User::orderBy('name')->get();
+        $pessoas = Pessoa::orderBy('name')->get();
         $unidades = Unidade::orderBy('nome')->get();
         $vacinas = Vacina::orderBy('nome')->get();
         return view('registros.edit', 
         ['registro'=>$registro,
-        'users'=> $users,
+        'pessoas'=> $pessoas,
         'unidades'=>$unidades,
         'vacinas'=>$vacinas]);
     }
@@ -99,7 +106,7 @@ class RegistroController extends Controller
      */
     public function update(RegistroFormRequest $request, Registro $registro)
     {
-        $registro->user_id = $request->user_id;
+        $registro->pessoa_id = $request->pessoa_id;
         $registro->unidade_id = $request->unidade_id;
         $registro->vacina_id = $request->vacina_id;
         $registro->data = $request->data;

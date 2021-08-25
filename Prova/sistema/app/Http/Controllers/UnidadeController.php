@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UnidadeFormRequest;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UnidadeController extends Controller
 {
@@ -17,7 +18,11 @@ class UnidadeController extends Controller
     {
         $unidades = Unidade::orderBy('nome')->get();
 
-        return view('unidades.index', ['unidades' => $unidades]);
+        if(Auth::check()){
+            return view('unidades.index', ['unidades' => $unidades]);
+        }else{
+            return redirect()->route('login')->with('alert','É necessário logar.');
+        }
     }
 
     /**

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Unidade;
+use App\Models\Pessoa;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UnidadeFactory extends Factory
+class PessoaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Unidade::class;
+    protected $model = Pessoa::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,10 @@ class UnidadeFactory extends Factory
     public function definition()
     {
         return [
-            'nome' => $this->faker->company(),
+            'name' => $this->faker->name(),
             'bairro' => $this->faker->streetName(),
             'cidade' => $this->faker->city(),
-            'data_nascimento' => $this->faker->dateTimeThisCentury($max='now', $timezone =null),
+            'data_nascimento' => $this->faker->dateTimeThisCentury($max='now'),
         ];
     }
 }

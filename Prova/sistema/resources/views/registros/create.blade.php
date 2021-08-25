@@ -19,9 +19,9 @@
         
 
             <div class="form-group">
-                <label for="user_id">Pessoa:</label>
-                <select name="user_id" id="user_id" class="form-control">
-                    @foreach($users as $u)
+                <label for="pessoa_id">Pessoa:</label>
+                <select name="pessoa_id" id="pessoa_id" class="form-control">
+                    @foreach($pessoas as $u)
                         <option value="{{$u->id}}">{{$u->name}}</option>
                     @endforeach
                 </select>

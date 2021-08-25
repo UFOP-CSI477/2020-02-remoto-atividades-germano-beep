@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Queue\Jobs\RedisJob;
 
 class UserController extends Controller
@@ -17,8 +18,18 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('name')->get();
+        if(Auth::check()){
+            if(Auth::user()->Admin == 1){
 
-        return view('users.index', ['users' => $users]);
+                return view('users.index', ['users' => $users]);
+            }
+            else{
+                return redirect()->route('administrativo')->with('alert','Somente Administradores.');
+
+            }
+        }else{
+            return redirect()->route('login')->with('alert','É necessário logar.');
+        }
     }
 
     /**

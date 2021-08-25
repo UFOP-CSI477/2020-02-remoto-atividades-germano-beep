@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VacinaFormRequest;
 use App\Models\Vacina;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VacinaController extends Controller
 {
@@ -16,8 +17,11 @@ class VacinaController extends Controller
     public function index()
     {
         $vacinas = Vacina::orderBy('nome')->get();
-
-        return view('vacinas.index', ['vacinas' => $vacinas]);
+        if(Auth::check()){
+            return view('vacinas.index', ['vacinas' => $vacinas]);
+        }else{
+            return redirect()->route('login')->with('alert','É necessário logar.');
+        }
     }
 
     /**

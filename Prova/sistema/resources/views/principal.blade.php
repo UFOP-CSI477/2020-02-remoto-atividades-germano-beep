@@ -26,7 +26,36 @@
             <li>
                 <a href="./administrativo.blade.php" class="btn btn-outline-light fw-bold">Área Administrativa</a>
             </li>
+            @guest
+    @if (Route::has('login'))
 
+    <a class="btn btn-outline-primary" href="{{ route('login') }}">Entrar</a>
+
+    @endif
+
+    @if (Route::has('register'))
+
+    <a class="btn btn-outline-primary" href="{{ route('register') }}">Criar nova conta</a>
+
+    @endif
+    @else
+    <!-- <div class="nav-item dropdown"> -->
+    <a id="navbarDropdown" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ Auth::user()->name }}
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
+    <!-- </div> -->
+    @endguest
 
         </ul>
     </div>
@@ -40,10 +69,10 @@
     @yield('conteudo')
 </body>
 
-<footer class="bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
+<!-- <footer class="bg-danger bg-gradient text-light text-center fw-bold" style="position: absolute;
  bottom: 0;
  width: 100%;"> Vaccine
 
-</footer>
+</footer> -->
 
 </html>

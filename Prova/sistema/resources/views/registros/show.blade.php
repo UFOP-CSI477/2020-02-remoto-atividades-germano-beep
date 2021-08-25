@@ -26,7 +26,7 @@
 
             <tr>
             <td>{{$registro->id}}</td>
-                <td>{{$registro->user->name}}</td>
+                <td>{{$registro->pessoa->name}}</td>
                 
                 <td>{{$registro->unidade->nome}}</td>
                 <td>{{$registro->vacina->nome}}</td>
